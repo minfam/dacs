@@ -1,0 +1,74 @@
+stages:   
+  # List of stages for jobs, and their order of execution
+  # - build
+  - test
+  # - deploy
+
+      
+# default:
+#   image: python:3.12-slim-bookworm
+
+# variables:
+#   SECURE_LOG_LEVEL: "debug"
+#   ANALYZER_INDENT_REPORT: "true"
+
+# build-job:       # This job runs in the build stage, which runs first.
+#   stage: build
+#   script:
+#     - echo "Compiling the code..."
+#     - echo "Compile complete."
+  
+#   only:
+#     - dev
+#     - sit
+#     - uat
+
+sast:
+  stage: test
+  
+# unit-test-job:   # This job runs in the test stage.
+#   stage: test    # It only starts when the job in the build stage completes successfully.
+#   script:
+#     - echo "Running unit tests... This will take about 60 seconds."
+#     - sleep 60
+#     - echo "Code coverage is 90%"
+
+#   only:
+#     - dev
+#     - sit
+#     - uat
+
+lint-test-job:   # This job also runs in the test stage.
+  image:  node:20-alpine
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+    - npm install -g @angular/cli
+    - echo "y" | ng version
+    - npm --version
+    - node --version
+    - npm install
+    - ls -la
+    - ng lint
+
+#   only:
+#     - dev
+#     - sit
+#     - uat
+
+# deploy-job:      # This job runs in the deploy stage.
+#   stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+#   environment: production
+#   script:
+#     - echo "Deploying application..."
+#     - echo "Application successfully deployed."
+
+#   only:
+#     - dev
+#     - sit
+#     - uat
+
+
+include:
+  - template: Security/Secret-Detection.gitlab-ci.yml
+  - template: Security/SAST.gitlab-ci.yml
+  - template: Jobs/Code-Quality.gitlab-ci.yml

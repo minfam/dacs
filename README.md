@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
 ## Working with this lta-btds-gui
+
 ### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -40,11 +41,13 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Implementing a branching strategy in GitLab for different environments like Development (DEV), System Integration Testing (SIT), and User Acceptance Testing (UAT) can help streamline the software development process and ensure smooth deployment
 
 **Developers should follow this branching workflows.**
+
 1. feature branch to dev branch
 2. dev branch to sit branch
 3. sit branch to uat branch
 
 ### Feature Branches
+
 Developers create feature branches from the development branch for implementing new features or fixing bugs.
 Each feature branch should have a descriptive name that reflects the feature or issue being addressed.
 Once development is complete, developers create merge requests (MRs) to merge their feature branches back into the development branch.
@@ -64,7 +67,7 @@ After features are merged into the development branch and deemed ready for testi
 This branch serves as a stable environment for integrating and testing features before they are promoted to UAT.
 Changes from the development branch are periodically merged into the SIT branch to ensure it stays up to date with the latest changes.
 
-**Developers can create MR from dev branch to sit branch. However, merge request is blocked and requres one approval by the admin to merge and approve the MR.** 
+**Developers can create MR from dev branch to sit branch. However, merge request is blocked and requres one approval by the admin to merge and approve the MR.**
 
 ### User Acceptance Testing (UAT) Branch
 
@@ -72,17 +75,16 @@ Once features have been tested and approved in the SIT environment, they can be 
 The UAT branch serves as a staging environment where stakeholders can perform final testing and validation of the features before they are deployed to production.
 Changes from the SIT branch are periodically merged into the UAT branch to ensure alignment between environments.
 
-**Developers can create MR from sit branch to uat branch. However, merge request is blocked and requres one approval by the admin to merge and approve the MR.** 
+**Developers can create MR from sit branch to uat branch. However, merge request is blocked and requres one approval by the admin to merge and approve the MR.**
 
 ## CI/CD
 
 GitLab CI/CD (Continuous Integration/Continuous Deployment) is a powerful automation tool that allows developers to automate the build, test, and deployment processes of their software projects directly within the GitLab platform. Here's an overview of GitLab CI/CD and how it works:
 
-
 ### Overview
 
 1. Integration with Version Control: GitLab CI/CD is tightly integrated with GitLab's version control system, allowing developers to define CI/CD pipelines directly within their GitLab repositories. This enables seamless collaboration and version control for CI/CD configuration files.
-  
+
 2. Pipeline Configuration: CI/CD pipelines in GitLab are defined using YAML configuration files (.gitlab-ci.yml) that reside in the root directory of the repository. These configuration files specify the stages, jobs, and scripts that make up the CI/CD pipeline.
 
 3. Stages and Jobs: A CI/CD pipeline consists of multiple stages, each of which contains one or more jobs. Stages represent the different phases of the pipeline (e.g., build, test, deploy), while jobs define the individual tasks to be executed within each stage.
@@ -92,15 +94,14 @@ GitLab CI/CD (Continuous Integration/Continuous Deployment) is a powerful automa
 5. Triggering Pipelines: CI/CD pipelines in GitLab can be triggered automatically on various events, such as code pushes, merge requests, or scheduled intervals. Additionally, developers can manually trigger pipelines from the GitLab UI or using GitLab's API.
 
 6. Parallel Execution: GitLab CI/CD supports parallel execution of jobs within a pipeline, allowing multiple jobs to run concurrently to optimize build times and improve overall pipeline efficiency.
-Artifacts and Caching: CI/CD pipelines can produce artifacts, such as compiled binaries or test reports, which can be stored and accessed for later use. GitLab also supports caching dependencies between pipeline runs to speed up subsequent builds.
+   Artifacts and Caching: CI/CD pipelines can produce artifacts, such as compiled binaries or test reports, which can be stored and accessed for later use. GitLab also supports caching dependencies between pipeline runs to speed up subsequent builds.
 
 7. Environment and Variables: GitLab CI/CD provides support for defining environments (e.g., production, staging) and managing environment-specific variables. This allows developers to deploy their applications to different environments with confidence.
-
 
 ### Workflow:
 
 1. Commit Changes: Developers commit changes to their GitLab repositories as usual.
-CI/CD Pipeline Execution: GitLab automatically detects the changes and triggers the corresponding CI/CD pipeline defined in the .gitlab-ci.yml file.
+   CI/CD Pipeline Execution: GitLab automatically detects the changes and triggers the corresponding CI/CD pipeline defined in the .gitlab-ci.yml file.
 
 2. Job Execution: The GitLab Runner executes the jobs defined in the pipeline, following the specified stages and sequence of tasks.
 

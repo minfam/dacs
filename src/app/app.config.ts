@@ -8,10 +8,10 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { headerInterceptor } from './services/header.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [
-    provideRouter(routes),
-    provideClientHydration(),
-    provideAnimationsAsync(),
-    provideHttpClient(withInterceptors([headerInterceptor])),
-  ],
+    providers: [
+        provideRouter(routes),
+        provideClientHydration(),
+        provideAnimationsAsync(),
+        provideHttpClient(withInterceptors([headerInterceptor])),
+    ],
 };

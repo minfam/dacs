@@ -5,24 +5,24 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'sign-in',
-    pathMatch: 'full',
-  },
-  {
-    path: 'sign-in',
-    component: SignInComponent,
-  },
-  {
-    path: '',
-    component: LayoutComponent,
-    canActivate: [AuthGuard],
-    children: [
-      {
-        path: 'dashboard',
-        component: DashboardComponent,
-      },
-    ],
-  },
+    {
+        path: '',
+        redirectTo: 'sign-in',
+        pathMatch: 'full',
+    },
+    {
+        path: 'sign-in',
+        component: SignInComponent,
+    },
+    {
+        path: '',
+        component: LayoutComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent,
+            },
+        ],
+    },
 ];

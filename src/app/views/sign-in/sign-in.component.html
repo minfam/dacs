@@ -16,16 +16,14 @@
                         type="text"
                         placeholder="Username"
                         formControlName="username"
-                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0046AD] focus:border-transparent"
+                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
                     />
-
                     <input
                         type="password"
                         placeholder="Password"
                         formControlName="password"
-                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0046AD] focus:border-transparent"
+                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
                     />
-
                     <p *ngIf="error" class="text-red-500">{{ error }}</p>
                     <button type="submit" mat-raised-button class="!text-white !bg-[#0046AD]" mat-button>Login</button>
                 </form>

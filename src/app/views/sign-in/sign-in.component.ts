@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 // import { UserService } from '../../services/user.service';
-import { Login } from '../../models/user';
-import { MatCardModule } from '@angular/material/card';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { Login } from '../../models/user';
 @Component({
     selector: 'app-sign-in',
     standalone: true,

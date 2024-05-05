@@ -7,13 +7,25 @@
             <img src="/assets/images/icons/logo.svg" alt="" class="mx-auto" />
             <div class="mt-6 text-2xl font-semibold text-center">Welcome to DACS/DAGW</div>
             <mat-card-content class="mt-4">
-                <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col justify-center w-96 mx-auto">
-                    <mat-form-field>
-                        <input type="text" matInput placeholder="Username" formControlName="username" />
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input type="password" matInput placeholder="Password" formControlName="password" />
-                    </mat-form-field>
+                <form
+                    [formGroup]="form"
+                    (ngSubmit)="submit()"
+                    class="flex flex-col justify-center gap-y-4 w-96 mx-auto"
+                >
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        formControlName="username"
+                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0046AD] focus:border-transparent"
+                    />
+
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        formControlName="password"
+                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0046AD] focus:border-transparent"
+                    />
+
                     <p *ngIf="error" class="text-red-500">{{ error }}</p>
                     <button type="submit" mat-raised-button class="!text-white !bg-[#0046AD]" mat-button>Login</button>
                 </form>

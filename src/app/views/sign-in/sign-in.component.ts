@@ -12,7 +12,7 @@ import { Login } from '../../models/user';
     standalone: true,
     imports: [CommonModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
     templateUrl: './sign-in.component.html',
-    styleUrls: ['./sign-in.component.css'],
+    styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
     loader: boolean = false;

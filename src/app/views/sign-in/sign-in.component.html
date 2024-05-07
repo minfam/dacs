@@ -1,33 +1,17 @@
-<div class="relative">
-    <div
-        class="absolute inset-0 bg-[url(/assets/images/login/login-background.png)] bg-cover bg-bottom bg-no-repeat"
-    ></div>
-    <div class="flex items-center justify-center min-h-screen !pb-44">
-        <mat-card class="!bg-transparent !shadow-none">
-            <img src="/assets/images/icons/logo.svg" alt="" class="mx-auto" />
-            <div class="mt-6 text-2xl font-semibold text-center">Welcome to DACS/DAGW</div>
-            <mat-card-content class="mt-4">
-                <form
-                    [formGroup]="form"
-                    (ngSubmit)="submit()"
-                    class="flex flex-col justify-center gap-y-4 w-96 mx-auto"
-                >
-                    <input
-                        type="text"
-                        placeholder="Username"
-                        formControlName="username"
-                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        formControlName="password"
-                        class="h-12 px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
-                    />
-                    <p *ngIf="error" class="text-red-500">{{ error }}</p>
-                    <button type="submit" mat-raised-button class="!text-white !bg-[#0046AD]" mat-button>Login</button>
+<div class="wrapper">
+    <div class="background-image"></div>
+    <div class="centered-flex">
+        <mat-card class="card">
+            <img src="/assets/images/icons/logo.svg" alt="" class="logo" />
+            <div class="welcome-message">Welcome to DACS/DAGW</div>
+            <mat-card-content class="content-section">
+                <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
+                    <input type="text" placeholder="Username" formControlName="username" class="input-field" />
+                    <input type="password" placeholder="Password" formControlName="password" class="input-field" />
+                    <p *ngIf="error" class="error-message">{{ error }}</p>
+                    <button type="submit" mat-raised-button class="login-button" mat-button>Login</button>
                 </form>
-                <a href="#" class="my-4 flex justify-center underline underline-offset-4">Forgot your password?</a>
+                <a href="#" class="forgot-password">Forgot your password?</a>
             </mat-card-content>
         </mat-card>
     </div>

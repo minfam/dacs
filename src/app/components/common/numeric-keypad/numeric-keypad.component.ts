@@ -14,8 +14,6 @@ export class NumericKeypadComponent {
     @Output() delete = new EventEmitter<void>();
     @Output() confirm = new EventEmitter<void>();
 
-    numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
-
     constructor(private router: Router) {}
 
     onNumberClick(number: string) {

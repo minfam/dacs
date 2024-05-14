@@ -1,0 +1,50 @@
+.wrapper {
+    background: black;
+    height: 100%;
+    padding: 20px;
+
+    .background-scan {
+        position: relative;
+        height: 100%;
+        background: url('/assets/images/scan-card/Rectangle.png') no-repeat bottom / cover;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .button-login {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #ffffff;
+            color: black;
+            padding: 35px 25px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .flex-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 55px;
+
+            .heading {
+                color: #ffb300;
+                font-size: 40px;
+                font-weight: bold;
+                text-align: center;
+            }
+            .sub-heading {
+                color: white;
+                font-size: 24px;
+                font-weight: lighter;
+                text-align: center;
+            }
+        }
+    }
+}

@@ -26,11 +26,11 @@ export class LoggedComponent {
     private timer: any;
 
     data: I_Logged = {
-        serviceNumber: '1234',
         dutyNumber: '1234',
-        busNumber: '166',
-        startingBusStop: 'SG 1068',
         staffId: '123456',
+        busNumber: '166',
+        serviceNumber: '1234',
+        startingBusStop: '12345 - Opp Sembawang Air Base',
     };
 
     constructor(

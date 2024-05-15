@@ -1,22 +1,19 @@
 .wrapper {
     background: black;
-    height: 100%;
+    min-height: 100vh;
     padding: 20px;
     color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 
     .date-time-display {
         color: #fff;
         background-color: #10151b;
-        padding: 14px;
+        padding: 20px;
         font-size: 22px;
         font-weight: lighter;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 4px;
+        border-radius: 10px 10px 0 0;
         gap: 15px;
 
         .calendar-icon {
@@ -37,8 +34,8 @@
     }
 
     .form-login {
-        padding: 0 120px;
-        margin-top: -50px;
+        padding: 80px 120px 60px;
+        background-color: #1a2733;
 
         .login-container {
             position: relative;
@@ -88,7 +85,7 @@
                 margin-top: 60px;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                gap: 25px;
+                gap: 30px;
 
                 .form-group {
                     display: flex;
@@ -96,7 +93,7 @@
                 }
 
                 .form-group label {
-                    margin-top: 20px;
+                    margin-top: 25px;
                     font-size: 20px;
                     font-weight: lighter;
                 }
@@ -119,7 +116,7 @@
     }
 
     .numeric-keypad {
-        padding: 0 80px;
-        margin-bottom: 80px;
+        padding: 0 20px;
+        margin-top: 50px;
     }
 }

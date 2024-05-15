@@ -33,17 +33,20 @@
             align-items: center;
             gap: 55px;
 
-            .heading {
+            .title {
                 color: #ffb300;
                 font-size: 40px;
                 font-weight: bold;
                 text-align: center;
             }
-            .sub-heading {
+            .sub-title {
                 color: white;
-                font-size: 24px;
+                font-size: 32px;
                 font-weight: lighter;
                 text-align: center;
+            }
+            .scan-card {
+                margin-top: 80px;
             }
         }
     }

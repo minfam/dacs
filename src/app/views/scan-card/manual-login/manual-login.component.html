@@ -3,7 +3,7 @@
         <img src="/assets/images/icons/calendar.svg" alt="" class="calendar-icon" />
         <div class="current-time">
             <div>
-                {{ currentDate | date: 'MMMM d, y' }}
+                {{ currentDate | date: 'dd/MM/yyyy' }}
             </div>
             <div class="divider"></div>
             <div>{{ currentDate | date: 'HH:mm:ss' }}</div>
@@ -25,6 +25,10 @@
                         <label for="odometer">Odomenter Value</label>
                         <input type="text" id="duty" name="odomenterValue" />
                     </div>
+                    <div class="form-group">
+                        <label for="serviceNumber">Service Number:</label>
+                        <input type="text" id="serviceNumber" name="serviceNumber" />
+                    </div>
                 </div>
                 <div>
                     <div class="form-group">
@@ -34,6 +38,10 @@
                     <div class="form-group">
                         <label for="staffID">Staff ID</label>
                         <input type="text" id="staffID" name="staffID" />
+                    </div>
+                    <div class="form-group">
+                        <label for="bus">Starting Bus Stop</label>
+                        <input type="text" id="bus" name="bus" />
                     </div>
                 </div>
             </form>

@@ -4,11 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from '../../layout';
 
 @Component({
     selector: 'app-main',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
+    imports: [CommonModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule, NavbarComponent],
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.scss'],
     providers: [DatePipe],

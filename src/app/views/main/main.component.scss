@@ -39,6 +39,7 @@ main {
         top: 0;
         width: 100%;
         padding: 0 20px;
+        background: #00151a;
 
         .navigation-section {
             @include flex-center;
@@ -91,8 +92,8 @@ main {
 
     .content {
         background: linear-gradient(#00151a 40%, #022830);
-        height: 100%;
-        padding: $header-footer-height 20px 64px;
+        height: calc(100% - #{$header-footer-height});
+        padding: $header-footer-height 20px 0;
         display: flex;
         gap: 10px;
         justify-content: space-between;
@@ -395,36 +396,6 @@ main {
                     }
                 }
             }
-        }
-    }
-
-    .footer {
-        width: 100%;
-        background-color: #000000;
-        height: $header-footer-height;
-        position: fixed;
-        bottom: 0;
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-
-        .nav-item {
-            font-size: 24px;
-            @include flex-center;
-            gap: 10px;
-            cursor: pointer;
-
-            &:not(:last-child) {
-                border-right: 1px solid rgba($separator-color, 0.25);
-            }
-
-            &:hover {
-                color: #fed001;
-            }
-        }
-
-        .active-link {
-            color: #fed001;
-            font-weight: bold;
         }
     }
 }

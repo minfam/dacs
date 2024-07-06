@@ -29,9 +29,9 @@
                 CRP
             </div>
         </div>
-        <div class="datetime-section font-28">
-            <div class="date">29/04/2024</div>
-            <div class="time">09:34:56</div>
+        <div class="datetime-section">
+            <div class="date">{{ currentDate }}</div>
+            <div class="time">{{ currentTime }}</div>
         </div>
     </div>
     <div class="content">
@@ -120,14 +120,14 @@
                     Fare
                 </div>
                 <div class="button item6">
-                    <img src="/assets/images/icons/main/msg.svg" alt="" />
+                    <img src="/assets/images/icons/main/msg.svg" alt="" class="icon" />
                     FMS Msg
                 </div>
                 <div class="button item7">
-                    <img src="/assets/images/icons/main/uparrow.svg" alt="" />
+                    <img src="/assets/images/icons/main/polygon.svg" alt="" class="icon-up" />
                 </div>
                 <div class="button item8">
-                    <img src="/assets/images/icons/main/downarrow.svg" alt="" />
+                    <img src="/assets/images/icons/main/downarrow.svg" alt="" class="icon-down" />
                 </div>
             </div>
         </div>
@@ -137,14 +137,14 @@
                     <div class="information">
                         <div class="info-items">
                             <div class="title">SERVICE NUMBER</div>
-                            <div class="number font-weight">983M</div>
+                            <div class="number">983M</div>
                         </div>
                         <div class="info-route">
-                            <div class="plate-number">PLATE NUMBER: <span class="bold font-28">SBS3327</span></div>
+                            <div class="plate-number">PLATE NUMBER: <span class="number">SBS3327</span></div>
                             <div class="route">
-                                <div class="SPID">SPID: <span class="bold">LDBO(27)</span></div>
-                                <div class="DIR">DIR: <span class="bold">2</span></div>
-                                <div class="KM">KM: <span class="bold">27.5</span></div>
+                                <div class="label-data">SPID: <span class="data">LDBO(27)</span></div>
+                                <div class="label-data">DIR: <span class="data">2</span></div>
+                                <div class="label-data">KM: <span class="data">27.5</span></div>
                             </div>
                         </div>
                     </div>
@@ -155,8 +155,8 @@
                             <img src="/assets/images/icons/main/headway.svg" alt="" />
                         </div>
                         <div class="title-headway">
-                            <div class="lebal-headway font-weight">163-sw-290</div>
-                            <div class="time font-28">02:30</div>
+                            <div class="lebal-headway">163-sw-290</div>
+                            <div class="time">02:30</div>
                         </div>
                     </div>
                     <div class="headway-bottom">
@@ -165,24 +165,37 @@
                         </div>
                         <div class="title-headway">
                             <img src="/assets/images/icons/main/arrow.svg" alt="" />
-                            <div class="title-right font-weight">1’</div>
+                            <div class="title-right">1’</div>
                         </div>
                     </div>
                 </div>
             </div>
+            <hr class="line" />
             <div class="group">
                 @for (item of indicators; track item) {
-                    <div class="indicator font-weight" [ngStyle]="{ 'background-color': item.color }">
+                    <div class="indicator" [ngStyle]="{ 'background-color': item.color }">
                         @if (item.left) {
-                            <div *ngIf="item.left" class="left" [ngStyle]="{ 'background-color': item.color }">
+                            <div *ngIf="item.left" class="left" [ngStyle]="{ 'background-color': item.badgeColor }">
                                 {{ item.left }}
                             </div>
                         }
                         @if (item.right) {
-                            <div class="right">{{ item.right }}</div>
+                            <img src="/assets/images/icons/main/star.svg" alt="" class="right" />
                         }
-                        <div class="name">{{ item.name }}</div>
-                        <div class="time">{{ item.time }}</div>
+                        <div class="matd-indicatior">
+                            <div
+                                class="name"
+                                [ngStyle]="{ 'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold' }"
+                            >
+                                {{ item.name }}
+                            </div>
+                            <div
+                                class="time"
+                                [ngStyle]="{ 'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold' }"
+                            >
+                                {{ item.time }}
+                            </div>
+                        </div>
                     </div>
                 }
             </div>
@@ -190,7 +203,7 @@
     </div>
     <div class="footer">
         <div class="nav-item">
-            <img src="/assets/images/icons/main/main-icon.svg" alt="" />
+            <img src="/assets/images/icons/main/madt-icon-main.svg" alt="" />
             Main
         </div>
         <div class="nav-item">

@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
-import { SignInComponent } from './views/sign-in/sign-in.component';
 import { LayoutComponent } from './components/layout/layout.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { SignInComponent } from './views/sign-in/sign-in.component';
+import { MainComponent } from './views/main/main.component';
 
 export const routes: Routes = [
     {
@@ -13,6 +14,10 @@ export const routes: Routes = [
     {
         path: 'sign-in',
         component: SignInComponent,
+    },
+    {
+        path: 'main',
+        component: MainComponent,
     },
     {
         path: '',

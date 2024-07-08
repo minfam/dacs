@@ -4,18 +4,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-import { NavbarComponent } from '../../layout';
 
 @Component({
     selector: 'app-main',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule, NavbarComponent],
+    imports: [CommonModule, MatCardModule, MatInputModule, MatButtonModule, ReactiveFormsModule],
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.scss'],
     providers: [DatePipe],
 })
 export class MainComponent {
+    currentDate = new Date();
+    intervalId;
     constructor(public datepipe: DatePipe) {}
+
+    ngOnInit() {
+        // Using Basic Interval
+        this.intervalId = setInterval(() => {
+            this.currentDate = new Date();
+        }, 1000);
+    }
 
     indicators = [
         {
@@ -49,6 +57,7 @@ export class MainComponent {
         },
     ];
 
-    currentDate = this.datepipe.transform(new Date(), 'MM/dd/yyyy');
-    currentTime = this.datepipe.transform(new Date(), 'HH:mm:ss');
+    ngOnDestroy() {
+        clearInterval(this.intervalId);
+    }
 }

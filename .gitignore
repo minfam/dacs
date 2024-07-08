@@ -5,6 +5,10 @@
 /tmp
 /out-tsc
 /bazel-out
+/lighttpd/htdocs/browser
+/lighttpd/htdocs/3rdpartylicenses.txt
+/lighttpd/htdocs/dist/browser
+/lighttpd/htdocs/dist/3rdpartylicenses.txt
 
 # Node
 /node_modules

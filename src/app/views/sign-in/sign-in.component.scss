@@ -1,81 +1,19 @@
-$primary-blue: #0046ad;
-$light-gray: #d1d5db;
-$error-red: #ef4444;
-$form-width: 384px;
-$input-height: 48px;
+.welcome-wrapper {
+    background: url('/assets/images/svg/welcome-bg.svg') no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-.wrapper {
-    position: relative;
-
-    .background-image {
-        position: absolute;
-        inset: 0;
-        background: url('/assets/images/login/login-background.png') no-repeat bottom / cover;
-    }
-
-    .centered-flex {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 100vh;
-        padding-bottom: 44px;
-
-        .card {
-            background-color: transparent;
-            box-shadow: none;
-            margin-bottom: 30px;
-
-            .logo {
-                margin: 0 auto;
-            }
-
-            .welcome-message {
-                margin-top: 24px;
-                font-size: 24px;
-                font-weight: bold;
-                text-align: center;
-            }
-
-            .content-section {
-                margin-top: 16px;
-
-                .login-form {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    row-gap: 16px;
-                    width: $form-width;
-                    margin: 0 auto;
-
-                    .input-field {
-                        height: $input-height;
-                        padding: 0 16px;
-                        border: 1px solid $light-gray;
-                        border-radius: 8px;
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-
-                    .error-message {
-                        color: $error-red;
-                    }
-
-                    .login-button {
-                        color: white;
-                        background-color: $primary-blue;
-                    }
-                }
-
-                .forgot-password {
-                    font-weight: bold;
-                    margin: 16px 0;
-                    display: flex;
-                    justify-content: center;
-                    text-decoration: underline;
-                    text-underline-offset: 4px;
-                }
-            }
-        }
-    }
+.welcome-message-cont {
+    background-color: white;
+    max-width: 487px;
+    min-height: 255px;
+    width: 100%;
+    padding: 15px 20px;
+    text-align: center;
 }

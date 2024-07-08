@@ -30,8 +30,8 @@
             </div>
         </div>
         <div class="datetime-section">
-            <div class="date">{{ currentDate }}</div>
-            <div class="time">{{ currentTime }}</div>
+            <div class="date">{{ currentDate | date: 'MM/dd/yyyy' }}</div>
+            <div class="time">{{ currentDate | date: 'hh:mm:ss' }}</div>
         </div>
     </div>
     <div class="content">
@@ -101,27 +101,27 @@
             <div class="button-control">
                 <div class="button item1">
                     <img src="/assets/images/icons/main/brkdwn.svg" alt="" />
-                    Brkdwn
+                    <p>Brkdwn</p>
                 </div>
                 <div class="button item2">
                     <img src="/assets/images/icons/main/farebox.svg" alt="" />
-                    Fare Box
+                    <p>Fare Box</p>
                 </div>
                 <div class="button item3">
                     <img src="/assets/images/icons/main/frontexit.svg" alt="" />
-                    Front Exit
+                    <p>Front Exit</p>
                 </div>
                 <div class="button item4">
                     <img src="/assets/images/icons/main/free.svg" alt="" />
-                    Free
+                    <p>Free</p>
                 </div>
                 <div class="button item5">
                     <img src="/assets/images/icons/main/coins.svg" alt="" />
-                    Fare
+                    <p>Fare</p>
                 </div>
                 <div class="button item6">
                     <img src="/assets/images/icons/main/msg.svg" alt="" class="icon" />
-                    FMS Msg
+                    <p>FMS Msg</p>
                 </div>
                 <div class="button item7">
                     <img src="/assets/images/icons/main/polygon.svg" alt="" class="icon-up" />
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <hr class="line" />
+            <!-- <hr class="line" /> -->
             <div class="group">
                 @for (item of indicators; track item) {
                     <div class="indicator" [ngStyle]="{ 'background-color': item.color }">
@@ -201,5 +201,4 @@
             </div>
         </div>
     </div>
-    <app-navbar />
 </main>

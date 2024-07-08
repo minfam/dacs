@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
+import { WelcomeComponent } from './views/welcome/welcome.component';
+
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard } from './guards/auth.guard';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { FMSComponent } from './views/fms/fms.component';
 import { MainComponent } from './views/main/main.component';
 import { MaintenanceComponent } from './views/maintenance/maintenance.component';
@@ -19,20 +20,8 @@ export const routes: Routes = [
         component: SignInComponent,
     },
     {
-        path: 'main',
-        component: MainComponent,
-    },
-    {
-        path: 'ticketing',
-        component: TicketingComponent,
-    },
-    {
-        path: 'fms',
-        component: FMSComponent,
-    },
-    {
-        path: 'maintenance',
-        component: MaintenanceComponent,
+        path: 'welcome',
+        component: WelcomeComponent,
     },
     {
         path: '',
@@ -40,8 +29,20 @@ export const routes: Routes = [
         canActivate: [AuthGuard],
         children: [
             {
-                path: 'dashboard',
-                component: DashboardComponent,
+                path: 'main',
+                component: MainComponent,
+            },
+            {
+                path: 'ticketing',
+                component: TicketingComponent,
+            },
+            {
+                path: 'fms',
+                component: FMSComponent,
+            },
+            {
+                path: 'maintenance',
+                component: MaintenanceComponent,
             },
         ],
     },

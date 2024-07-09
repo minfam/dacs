@@ -1,5 +1,5 @@
 import { CommonModule, DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -13,16 +13,25 @@ import { MatInputModule } from '@angular/material/input';
     styleUrls: ['./main.component.scss'],
     providers: [DatePipe],
 })
-export class MainComponent {
-    currentDate = new Date();
-    intervalId;
-    constructor(public datepipe: DatePipe) {}
+export class MainComponent implements OnInit, OnDestroy {
+    currentDate: Date = new Date();
+    private timer: any;
+    constructor(private ngZone: NgZone) {}
 
-    ngOnInit() {
-        // Using Basic Interval
-        this.intervalId = setInterval(() => {
-            this.currentDate = new Date();
-        }, 1000);
+    ngOnInit(): void {
+        this.ngZone.runOutsideAngular(() => {
+            this.timer = setInterval(() => {
+                this.ngZone.run(() => {
+                    this.currentDate = new Date();
+                });
+            }, 1000);
+        });
+    }
+
+    ngOnDestroy(): void {
+        if (this.timer) {
+            clearInterval(this.timer);
+        }
     }
 
     indicators = [
@@ -56,8 +65,4 @@ export class MainComponent {
             textStyle: 'lighter',
         },
     ];
-
-    ngOnDestroy() {
-        clearInterval(this.intervalId);
-    }
 }

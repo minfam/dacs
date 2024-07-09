@@ -1,0 +1,134 @@
+//========---------- Colors ----------========
+$initial: initial;
+
+// Colors
+$color-white: #fff;
+$color-black: #000;
+$color-primary: #1a2733;
+$color-primary-1: #ffb300;
+$color-secondary: #b21010;
+$color-secondary-1: #049f9a;
+$color-secondary-2: #c25500;
+$color-secondary-3: #0f65a1;
+$color-secondary-4: #00883f;
+$color-secondary-5: #35485a;
+$color-neutral: #bcbcbc;
+$color-neutral-1: #eaecee;
+$color-neutral-2: #10151b;
+$color-neutral-3: #191f24;
+$color-neutral-4: #d6edff;
+
+$color-text: #2b3c4d;
+$color-gray: #9aa0a7;
+$color-gray-outline: #8a8a8a;
+$color-footer: #c9c9c9;
+$color-border: #e3e3e3;
+$color-border-dark-bg: #667583;
+$color-border-light: #f1f1f1;
+$color-placeholder: #a6a6a6;
+$color-description: #666;
+$color-description-dark-bg: #c2c2c2;
+$color-bg-dark: #2b3c4d;
+$color-bg-light: #fafafa;
+$color-menu-hover: #00a3e0;
+$color-menu-hover-dark-bg: #bfeeff;
+$color-btn-primary: #43b02b;
+$color-btn-primary-hover: #68c830;
+$color-btn-secondary: #00a3e0;
+$color-btn-secondary-hover: #06b4f5;
+$color-range-slider: #dadada;
+$color-error: #e22134;
+$color-title-med: #064d79;
+
+// Font weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Font size
+$font-size-default: 1.6rem;
+$font-size-sm: 1.2rem;
+$font-size-md: 1.4rem;
+$font-size-lg: 1.8rem;
+
+//White
+$white: hsl(0, 0%, 100%); //#fff
+
+//Black
+$black: hsl(0, 0%, 0%); //#000
+$black-a20: hsla(0, 0%, 0%, 0.2);
+$black-a80: rgba(0, 0, 0, 0.8);
+
+//Orange
+$orange: hsl(11, 74%, 61%); //#e56f54
+$gold: #eaaa00;
+$coral: #cf6148;
+
+//Red
+$red: hsl(0, 100%, 50%); //#ff0000
+$orange-red: hsl(16, 85%, 52%); //#ed541d
+
+//Others
+$linkedin-blue: hsl(201, 98%, 35%); //#0274b3
+$twitter-blue: hsl(196, 100%, 46%); //#00aced
+$letter-brown: hsl(40, 32%, 40%); //#887246
+$sky-blue: #9fc3e5;
+$turquoise: #148282;
+$deep-blue: #23559b;
+$linkedIn-color: #0a77b5;
+
+//article
+$article-gray: #343434;
+$article-gray-light: rgba(52, 52, 52, 0.8);
+$article-green: #448162;
+$article-red: #cb4b2e;
+$tile-spacing: 20px;
+
+//========---------- Fonts ----------========
+$font-inter: 'Inter';
+// $font-univers-font-face: 'univers';
+// $universLTStd: 'UniversLTStd-Cn';
+// // The Taiwanese font has to be loaded via JS, please see base.html.twig
+// $font-heit-font-face: 'HeiT ASC Light W40 Regular';
+// $font-univers: $font-univers-font-face, Arial, sans-serif;
+// $font-heit: $font-heit-font-face, Arial, sans-serif;
+
+//========---------- Structure ----------========
+$external-horizontal-gutters: 7%;
+$vertical-block-margin: 40px;
+$article-outer-gutters: 12%;
+$article-inner-gutters: 80px;
+$header-height: 116px;
+$upper-header-height: 36px;
+$article-header-height: 40px;
+$popin-layer-index: 2000;
+$vertical-tile-padding: 55px;
+$horizontal-tile-padding: 12.5%;
+$funds-page-gutters: (
+    'tab': 25px,
+    'mob': 0,
+);
+$footer-height: 200px;
+$footer-margin-top: 100px;
+$hub-page-width: 875px;
+$hub-page-padding-desktop: 40px;
+$hub-page-padding-mob: 20px;
+
+//Article font size
+$article-title-font-size: 2.8rem;
+$article-paragraph-font-size: 1.8rem;
+$article-paragraph-line-height: 2.8rem;
+$article-paragraph-font-weight: 100;
+
+//Mobile and tablet
+$tablet-horizontal-margin: 40px;
+$article-outer-gutters-tab: 40px;
+$mobile-horizontal-margin: 10px;
+$header-mobile-height: 60px;
+
+//========---------- Animation ----------========
+$snap-animation-duration: 0.4s;
+
+//========---------- Structure ----------========
+$path-fonts: '../assets/fonts/';

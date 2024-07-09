@@ -1,18 +1,24 @@
-<div class="wrapper">
-    <div class="background-image"></div>
-    <div class="centered-flex">
-        <mat-card class="card">
-            <img src="/assets/images/icons/logo.svg" alt="" class="logo" />
-            <div class="welcome-message">Welcome to DACS/DAGW</div>
-            <mat-card-content class="content-section">
-                <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
-                    <input type="text" placeholder="Username" formControlName="username" class="input-field" />
-                    <input type="password" placeholder="Password" formControlName="password" class="input-field" />
-                    <p *ngIf="error" class="error-message">{{ error }}</p>
-                    <button type="submit" mat-raised-button class="login-button" mat-button>Login</button>
-                </form>
-                <a href="#" class="forgot-password">Forgot your password?</a>
-            </mat-card-content>
-        </mat-card>
+
+<div class="welcome-wrapper">
+    <div class="welcome-message-cont">
+        <img src="/assets/images/svg/logo.svg" />
+        <h1 class="mat-h1">Welcome to MADT</h1>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            @if (error) {
+                <mat-error><strong>Invalid</strong> username or password</mat-error>
+              }
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username" type="text" required>
+            </mat-form-field>
+            <br />
+            <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" required>
+            </mat-form-field>
+            <br />
+            <button [disabled]="!form.valid" mat-raised-button color="accent" type="submit">Login</button>
+        </form>
     </div>
 </div>

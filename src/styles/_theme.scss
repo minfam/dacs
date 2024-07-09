@@ -1,0 +1,165 @@
+@use '@angular/material' as mat;
+// @use '../app/home/home.component.theme' as homeComponent;
+
+@include mat.core();
+// mat.$theme-ignore-duplication-warnings: true;
+
+$lta-white: (
+    500: white,
+    contrast: (
+        500: black,
+    ),
+);
+
+$lta-black: (
+    500: black,
+    contrast: (
+        500: white,
+    ),
+);
+
+$custom_palettes: (
+    lta-white: $lta-white,
+    lta-black: $lta-black,
+);
+
+$md-dark-primary: (
+    50: #f6e2e2,
+    100: #e8b7b7,
+    200: #d98888,
+    300: #c95858,
+    400: #be3434,
+    500: #b21010,
+    600: #ab0e0e,
+    700: #a20c0c,
+    800: #990909,
+    900: #8a0505,
+    A100: #ffb7b7,
+    A200: #ff8484,
+    A400: #ff5151,
+    A700: #ff3737,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #ffffff,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #ffffff,
+    ),
+);
+$md-dark-secondary: (
+    50: #e1eff1,
+    100: #b3d7dd,
+    200: #80bdc6,
+    300: #4da2af,
+    400: #278e9e,
+    500: #017a8d,
+    600: #017285,
+    700: #01677a,
+    800: #015d70,
+    900: #004a5d,
+    A100: #8ee3ff,
+    A200: #5bd7ff,
+    A400: #28caff,
+    A700: #0ec4ff,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    ),
+);
+@include lta-color-classes($custom_palettes);
+
+@mixin lta-core-theme($theme) {
+    // Theming for lta core styles
+    @include colors-theme($theme);
+    // @include cards-theme($theme);
+    // @include material-theme($theme);
+    // @include page-layouts-theme($theme);
+    @include typography-theme($theme);
+
+    // // Theming for lta components
+    // @include lta-countdown-theme($theme);
+    // @include lta-search-bar-theme($theme);
+    // @include lta-shortcuts-theme($theme);
+    // @include lta-sidebar-theme($theme);
+    // @include lta-theme-options-theme($theme);
+    // @include lta-material-color-picker-theme($theme);
+    // @include lta-widget-theme($theme);
+
+    // Theming for 3rd party components
+    // @include ngx-datatable-theme($theme);
+}
+
+// Angular Material typography
+$regular-font-family: "'Inter', sans-serif";
+$custom-typography-config: mat.define-typography-config(
+    $font-family: $regular-font-family,
+);
+
+$dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: mat.define-palette($md-dark-primary),
+            accent: mat.define-palette($md-dark-secondary, 500),
+        ),
+        // Only include `typography` and `density` in the default dark theme.
+        // typography: mat.define-typography-config(),
+        typography: $custom-typography-config,
+        density: 0,
+    )
+);
+
+// Apply the dark theme by default
+.dark-theme {
+    @include mat.core-theme($dark-theme);
+    @include mat.button-theme($dark-theme);
+    @include mat.all-component-themes($dark-theme);
+    @include lta-core-theme($dark-theme);
+}
+
+// // Apply the light theme only when the user prefers light themes.
+// @media (prefers-color-scheme: light) {
+//     // Use the `-color` mixins to only apply color styles without reapplying the same
+//     // typography and density styles.
+//     @include mat.core-color($light-theme);
+//     @include mat.button-color($light-theme);
+// }
+
+$light-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: mat.define-palette(mat.$indigo-palette),
+            accent: mat.define-palette(mat.$pink-palette),
+        ),
+        // typography: mat.define-typography-config(),
+        typography: $custom-typography-config,
+        density: 0,
+    )
+);
+
+.light-theme {
+    @include mat.core-color($light-theme);
+    @include mat.button-color($light-theme);
+    @include mat.all-component-colors($light-theme);
+    @include lta-core-theme($light-theme);
+}

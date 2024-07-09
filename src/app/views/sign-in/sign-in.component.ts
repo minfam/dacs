@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-// import { UserService } from '../../services/user.service';
-import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import User from '@dummyData/user.login';
 import { MatCardModule } from '@angular/material/card';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Login } from '../../models/user';
+
 @Component({
     selector: 'app-sign-in',
     standalone: true,
@@ -17,32 +17,30 @@ import { Login } from '../../models/user';
 export class SignInComponent implements OnInit {
     loader: boolean = false;
     form!: FormGroup;
-    error: string = '';
+    error: boolean = false;
     constructor(
-        // private userService: UserService,
         private fb: FormBuilder,
         private router: Router,
     ) {}
 
     ngOnInit() {
-        this.form = this.fb.group(new Login());
-        // const sampleData = this.userService.get(0).subscribe({
-        //   next: (value: User[]) => {
-        //     console.log(value);
-        //   },
-        //   error: e => {
-        //     console.error(e);
-        //     this.loader = false;
-        //   },
-        //   complete: () => {
-        //     console.log(sampleData);
-        //     this.loader = false;
-        //   },
-        // });
+        const keys = localStorage.getItem('keys');
+        if (keys === User?.sign) {
+            this.router.navigate(['/dashboard']);
+        }
+        this.form = this.fb.group({
+            username: ['', [Validators.required]],
+            password: ['', [Validators.required, Validators.minLength(6)]],
+        });
     }
 
-    submit() {
-        this.router.navigate(['/dashboard']);
-        console.log(this.form.getRawValue());
+    onSubmit(): void {
+        this.error = false;
+        if (this.form.valid && this.form.value?.username === User?.name && this.form.value?.password === User?.value) {
+            localStorage.setItem('keys', User?.sign);
+            this.router.navigate(['/dashboard']);
+        } else {
+            this.error = true;
+        }
     }
 }

@@ -1,0 +1,34 @@
+<div class="navbar-container">
+    <div class="nav-item" (click)="navigate('/main')" [class.active-link]="isRouteActive('/main')">
+        @if (isRouteActive('/main')) {
+            <img src="/assets/images/icons/main/main-active.svg" class="nav-icon" alt="" />
+        } @else {
+            <img src="/assets/images/icons/main/menu.svg" class="nav-icon" alt="" />
+        }
+        Main
+    </div>
+    <div class="nav-item" (click)="navigate('/ticketing')" [class.active-link]="isRouteActive('/ticketing')">
+        @if (isRouteActive('/ticketing')) {
+            <img src="/assets/images/icons/main/vector-active.svg" class="nav-icon" alt="" />
+        } @else {
+            <img src="/assets/images/icons/main/ticket.svg" class="nav-icon" alt="" />
+        }
+        Ticketing
+    </div>
+    <div class="nav-item" (click)="navigate('/fms')" [class.active-link]="isRouteActive('/fms')">
+        @if (isRouteActive('/fms')) {
+            <img src="/assets/images/icons/main/envelope-active.svg" class="nav-icon" alt="" />
+        } @else {
+            <img src="/assets/images/icons/main/envelope.svg" class="nav-icon" alt="" />
+        }
+        FMS
+    </div>
+    <div class="nav-item" (click)="navigate('/maintenance')" [class.active-link]="isRouteActive('/maintenance')">
+        @if (isRouteActive('/maintenance')) {
+            <img src="/assets/images/icons/main/gear-active.svg" class="nav-icon" alt="" />
+        } @else {
+            <img src="/assets/images/icons/main/maintenance.svg" class="nav-icon" alt="" />
+        }
+        Maintenance
+    </div>
+</div>

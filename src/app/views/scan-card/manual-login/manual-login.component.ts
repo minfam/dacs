@@ -23,8 +23,8 @@ import { NumericKeypadComponent } from '../../../components/common/numeric-keypa
 })
 export class ManualLoginComponent implements OnInit, OnDestroy {
     currentDate: Date = new Date();
-    private timer: any;
     currentInput = '';
+    private timer: any;
 
     constructor(
         private ngZone: NgZone,

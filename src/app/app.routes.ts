@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { LoggedComponent } from './views/scan-card/logged/logged.component';
+import { ManualLoginComponent } from './views/scan-card/manual-login/manual-login.component';
+import { ScanCardComponent } from './views/scan-card/scan-card.component';
 import { WelcomeComponent } from './views/welcome/welcome.component';
-
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard } from './guards/auth.guard';
 import { FMSComponent } from './views/fms/fms.component';
@@ -43,6 +46,23 @@ export const routes: Routes = [
             {
                 path: 'maintenance',
                 component: MaintenanceComponent,
+            },
+        ],
+    },
+    {
+        path: 'scan-card',
+        children: [
+            {
+                path: '',
+                component: ScanCardComponent,
+            },
+            {
+                path: 'login-information',
+                component: ManualLoginComponent,
+            },
+            {
+                path: 'logged',
+                component: LoggedComponent,
             },
         ],
     },

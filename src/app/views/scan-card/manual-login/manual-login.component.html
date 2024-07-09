@@ -1,0 +1,57 @@
+<div class="wrapper">
+    <div class="date-time-display">
+        <img src="/assets/images/icons/calendar.svg" alt="" class="calendar-icon" />
+        <div class="current-time">
+            <div>
+                {{ currentDate | date: 'dd/MM/yyyy' }}
+            </div>
+            <div class="divider"></div>
+            <div>{{ currentDate | date: 'HH:mm:ss' }}</div>
+        </div>
+    </div>
+    <div class="form-login">
+        <div class="login-container">
+            <button class="arrow-button" (click)="backScanCard()">Back</button>
+            <div class="login-title">Login</div>
+        </div>
+        <div class="form-container">
+            <form class="grid-input">
+                <div>
+                    <div class="form-group">
+                        <label for="pin">PIN Code:</label>
+                        <input type="text" id="pin" name="pinCode" />
+                    </div>
+                    <div class="form-group">
+                        <label for="odometer">Odomenter Value</label>
+                        <input type="text" id="duty" name="odomenterValue" />
+                    </div>
+                    <div class="form-group">
+                        <label for="serviceNumber">Service Number:</label>
+                        <input type="text" id="serviceNumber" name="serviceNumber" />
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label for="duty">Duty Number</label>
+                        <input type="text" id="odometer" name="dutyNumber" />
+                    </div>
+                    <div class="form-group">
+                        <label for="staffID">Staff ID</label>
+                        <input type="text" id="staffID" name="staffID" />
+                    </div>
+                    <div class="form-group">
+                        <label for="bus">Starting Bus Stop</label>
+                        <input type="text" id="bus" name="bus" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="numeric-keypad">
+        <app-numeric-keypad
+            (numberClick)="appendNumber($event)"
+            (delete)="handleDelete()"
+            (confirm)="handleConfirm()"
+        ></app-numeric-keypad>
+    </div>
+</div>

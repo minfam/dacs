@@ -1,0 +1,122 @@
+.wrapper {
+    background: black;
+    min-height: 100vh;
+    padding: 20px;
+    color: white;
+
+    .date-time-display {
+        color: #fff;
+        background-color: #10151b;
+        padding: 20px;
+        font-size: 22px;
+        font-weight: lighter;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px 10px 0 0;
+        gap: 15px;
+
+        .calendar-icon {
+            width: 25px;
+        }
+
+        .current-time {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            .divider {
+                width: 1px;
+                height: 25px;
+                background: #99bad9;
+            }
+        }
+    }
+
+    .form-login {
+        padding: 80px 120px 60px;
+        background-color: #1a2733;
+
+        .login-container {
+            position: relative;
+
+            .arrow-button {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: lighter;
+                color: black;
+                background-color: #d9d9d9;
+                border: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .arrow-button:before {
+                content: '';
+                position: absolute;
+                left: -20px;
+                top: 0;
+                bottom: 0;
+                width: 20px;
+                background-color: inherit;
+                clip-path: polygon(100% 0, 0 50%, 100% 100%);
+            }
+
+            .arrow-button:hover {
+                background-color: #bbb;
+            }
+
+            .login-title {
+                font-size: 40px;
+                font-weight: bold;
+                margin-top: -30px;
+                text-align: center;
+            }
+        }
+
+        .form-container {
+            color: #fff;
+            width: auto;
+
+            .grid-input {
+                margin-top: 60px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+
+                .form-group {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .form-group label {
+                    margin-top: 25px;
+                    font-size: 20px;
+                    font-weight: lighter;
+                }
+
+                .form-group input {
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 4px;
+                    margin-top: 15px;
+                    background-color: #1a1a1a;
+                    height: 60px;
+                    font-size: 20px;
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .numeric-keypad {
+        padding: 0 20px;
+        margin-top: 50px;
+    }
+}

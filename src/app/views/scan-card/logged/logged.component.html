@@ -1,0 +1,41 @@
+<div class="wrapper">
+    <div class="date-time-display">
+        <img src="/assets/images/icons/calendar.svg" alt="" class="calendar-icon" />
+        <div class="current-time">
+            <div>
+                {{ currentDate | date: 'MMMM d, y' }}
+            </div>
+            <div class="divider"></div>
+            <div>{{ currentDate | date: 'HH:mm:ss' }}</div>
+        </div>
+    </div>
+    <div class="form-container">
+        <div class="title">Please check if your details are correct</div>
+        <div class="form-correct">
+            <div class="flex-data">
+                <div class="label">Duty Number:</div>
+                <p class="value">{{ data.dutyNumber }}</p>
+            </div>
+            <div class="flex-data">
+                <div class="label">Staff ID:</div>
+                <p class="value">{{ data.staffId }}</p>
+            </div>
+            <div class="flex-data">
+                <div class="label">Bus Number:</div>
+                <p class="value">{{ data.busNumber }}</p>
+            </div>
+            <div class="flex-data">
+                <div class="label">Service Number:</div>
+                <p class="value">{{ data.serviceNumber }}</p>
+            </div>
+            <div class="flex-data">
+                <div class="label">Starting Bus Stop:</div>
+                <p class="value">{{ data.startingBusStop }}</p>
+            </div>
+        </div>
+        <div class="action">
+            <button class="cancel-button" (click)="backManualLogin()">Cancel</button>
+            <button class="proceed-button">Proceed</button>
+        </div>
+    </div>
+</div>

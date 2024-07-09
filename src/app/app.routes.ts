@@ -1,16 +1,16 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { LoggedComponent } from './views/scan-card/logged/logged.component';
-import { ManualLoginComponent } from './views/scan-card/manual-login/manual-login.component';
-import { ScanCardComponent } from './views/scan-card/scan-card.component';
-import { WelcomeComponent } from './views/welcome/welcome.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { FMSComponent } from './views/fms/fms.component';
 import { MainComponent } from './views/main/main.component';
 import { MaintenanceComponent } from './views/maintenance/maintenance.component';
+import { LoggedComponent } from './views/scan-card/logged/logged.component';
+import { ManualLoginComponent } from './views/scan-card/manual-login/manual-login.component';
+import { ScanCardComponent } from './views/scan-card/scan-card.component';
 import { SignInComponent } from './views/sign-in/sign-in.component';
 import { TicketingComponent } from './views/ticketing/ticketing.component';
+import { WelcomeComponent } from './views/welcome/welcome.component';
 
 export const routes: Routes = [
     {
@@ -25,6 +25,17 @@ export const routes: Routes = [
     {
         path: 'welcome',
         component: WelcomeComponent,
+    },
+    {
+        path: '',
+        component: LayoutComponent,
+        canActivate: [AuthGuard],
+        children: [
+            {
+                path: 'dashboard',
+                component: DashboardComponent,
+            },
+        ],
     },
     {
         path: '',

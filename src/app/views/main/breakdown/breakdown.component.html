@@ -1,0 +1,200 @@
+<div class="container">
+    <!-- <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Deck Type</h2>
+        <div class="content">
+            <p class="label">Value: <span class="value">Single</span></p>
+            <div class="button" (click)="handleSelect()">
+                <img src="/assets/images/icons/maintenance/default-setting.svg" alt="" />
+                <div class="text">Confirm</div>
+            </div>
+        </div>
+    </div> -->
+    <ng-container *ngIf="step === 1">
+        <confirm-dialog
+            [title]="'Confirm End Trip Breakdown?'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleConfirm(false)"
+            (onConfirm)="handleConfirm(true)"
+        >
+            <div class="dialog-content" content>
+                Press Enter to end trip <br />
+                and update all trip records.
+            </div>
+        </confirm-dialog>
+    </ng-container>
+
+    <ng-container *ngIf="step === 2">
+        <div class="page-header">
+            <div class="button" (click)="backToMain()">
+                <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                <span>Close</span>
+            </div>
+        </div>
+        <div class="confirm">
+            <div class="confirm-header">End Trip Type</div>
+            <p class="confirm-msg">Normal or Premature end trip?</p>
+            <div class="cf-btn-group">
+                <div class="btn" (click)="handleSelectEndTripType('normal')">Normal</div>
+                <div class="btn" (click)="handleSelectEndTripType('premature')">Premature</div>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="step === 3">
+        <div class="back-button" (click)="goBack(2)">Back</div>
+        <div>
+            <h2 class="title">Premature End Trip Details</h2>
+            <div class="content">
+                <ul>
+                    <li class="row">
+                        <div class="left">Service</div>
+                        <div class="right" (click)="handleChange('service')">
+                            <p class="value">58</p>
+                            <mat-icon>chevron_right</mat-icon>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="left">Direction</div>
+                        <div class="right">
+                            <p class="value" (click)="handleChange('direction')">Dir 1</p>
+                            <mat-icon>chevron_right</mat-icon>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="left">First Bus Stop</div>
+                        <div class="right" (click)="handleChange('first_bus_stop')">
+                            <p class="value">BUSPARK</p>
+                            <mat-icon>chevron_right</mat-icon>
+                        </div>
+                    </li>
+                    <li class="row">
+                        <div class="left">Last Bus Stop</div>
+                        <div class="right" (click)="handleChange('last_bus_stop')">
+                            <p class="value">BISHAN PK</p>
+                            <mat-icon>chevron_right</mat-icon>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="confirm-button" (click)="handleConfirmValue()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <span class="text">Confirm</span>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngIf="step === 4" class="dia-log">
+        <div class="dia-log-main">
+            <div class="dia-log-header">
+                <h3 class="dia-log-title">{{ dialogTitle }}</h3>
+                <div class="close-btn" (click)="goBack(3)">
+                    <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                    <span>Close</span>
+                </div>
+            </div>
+            <div class="dia-log-content">
+                <table class="deck-type-table stripped">
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleToggleValue('single')">
+                                <img
+                                    *ngIf="selected === 'single'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="selected !== 'single'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Single</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleToggleValue('db2doors')">
+                                <img
+                                    *ngIf="selected === 'db2doors'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="selected !== 'db2doors'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Double 2 Doors</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleToggleValue('db3doors')">
+                                <img
+                                    *ngIf="selected === 'db3doors'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="selected !== 'db3doors'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Double 3 Doors</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleToggleValue('longBus')">
+                                <img
+                                    *ngIf="selected === 'longBus'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="selected !== 'longBus'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Long Bus</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleToggleValue('bcv')">
+                                <img
+                                    *ngIf="selected === 'bcv'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="selected !== 'bcv'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>1 BCV</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="confirm-button" (click)="handleConfirmValue()">
+                <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                <span class="text">Confirm</span>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 5">
+        <confirm-dialog [title]="'Successfully Set to BRKDWN Mode'" [btnOK]="true" (onOK)="handleFinish()">
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

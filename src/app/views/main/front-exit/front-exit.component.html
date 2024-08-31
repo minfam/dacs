@@ -1,0 +1,41 @@
+<div class="container">
+    <ng-container *ngIf="exitMode === ''; else selectedExitMode">
+        <div class="page-header">
+            <h2>Front Door Exit</h2>
+            <div class="button" (click)="backToMain()">
+                <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                <span>Close</span>
+            </div>
+        </div>
+        <div class="button-group">
+            <div class="cv-button" (click)="setExitMode('CV1')">CV1</div>
+            <div class="cv-button" (click)="setExitMode('CV2')">CV2</div>
+        </div>
+    </ng-container>
+
+    <ng-template #selectedExitMode>
+        <div class="page-header">
+            <div class="button" (click)="backToMain()">
+                <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                <span>Close</span>
+            </div>
+        </div>
+        <div class="dialog">
+            <div class="dialog-header">
+                <span>{{ exitMode }}:</span>
+                <span>Front Exit</span>
+            </div>
+            <p class="confirm-msg">Press Enter to Confirm</p>
+            <div class="cf-btn-group">
+                <div class="btn btn-cancel" (click)="goBack()">
+                    <img src="/assets/images/icons/main/close.svg" alt="" />
+                    <span>Cancel</span>
+                </div>
+                <div class="btn btn-confirm" (click)="handleUpdateCV(true)">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <span>Confirm</span>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>

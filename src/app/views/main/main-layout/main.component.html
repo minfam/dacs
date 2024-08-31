@@ -1,0 +1,294 @@
+<div class="main-page">
+    <!-- <div class="header">
+        <div class="navigation-section">
+            <div class="logout-button">
+                <img src="/assets/images/icons/main/logout.svg" alt="" />
+                Logout
+            </div>
+            <div class="endtrip-button">
+                <img src="/assets/images/icons/main/stop.svg" alt="" />
+                End Trip
+            </div>
+        </div>
+
+        <div class="status-indicators">
+            <div class="status">
+                <img src="/assets/images/icons/main/check.svg" alt="" />
+                BOLC
+            </div>
+            <div class="status">
+                <img src="/assets/images/icons/main/check.svg" alt="" />
+                Ticketing
+            </div>
+            <div class="status">
+                <img src="/assets/images/icons/main/check.svg" alt="" />
+                FMS
+            </div>
+            <div class="status">
+                <img src="/assets/images/icons/main/check.svg" alt="" />
+                CRP
+            </div>
+        </div>
+        <div class="datetime-section">
+            <div class="date">{{ currentDate | date: 'MM/dd/yyyy' }}</div>
+            <div class="time">{{ currentDate | date: 'HH:mm:ss' }}</div>
+        </div>
+    </div> -->
+    <div class="content">
+        <div class="left-content">
+            <div class="cv-block">
+                <div class="title" [ngClass]="cvsActive.includes(1) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">1</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(1)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img src="/assets/images/icons/main/wheelchair.svg" alt="" />
+                        <div class="text">PWD</div>
+                    </div> -->
+                </div>
+                <div class="title" [ngClass]="cvsActive.includes(2) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">2</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(2)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img src="/assets/images/icons/main/senior.svg" alt="" />
+                        <div class="text">Senior</div>
+                    </div> -->
+                </div>
+                <div class="title" [ngClass]="cvsActive.includes(3) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">3</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(3)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img src="/assets/images/icons/main/student.svg" alt="" />
+                        <div class="text">Student</div>
+                    </div> -->
+                </div>
+                <div class="title" [ngClass]="cvsActive.includes(4) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">4</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(4)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img style="margin-bottom: 16px" src="/assets/images/icons/main/circlecheck.svg" alt="" />
+                        <div class="text">SIMPLYGO</div>
+                    </div> -->
+                </div>
+                <div class="title" [ngClass]="cvsActive.includes(5) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">5</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(5)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img src="/assets/images/icons/main/soldier.svg" alt="" />
+                        <div class="text">NSF</div>
+                    </div> -->
+                </div>
+                <div class="title" [ngClass]="cvsActive.includes(6) ? 'active' : ''">
+                    <div class="status-icon">
+                        <div class="number">6</div>
+                        <div class="cv-status-wrapper">
+                            <img src="/assets/images/icons/main/cv.svg" alt="" />
+                            <div class="cv-status">
+                                <img src="/assets/images/icons/main/arrow-out.svg" alt="" />
+                                <!-- <img src="/assets/images/icons/main/arrow-in.svg" alt="" /> -->
+                            </div>
+                            <div *ngIf="cvsFree.includes(6)" class="free-text">
+                                <p>Free</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="icon-text">
+                        <img src="/assets/images/icons/main/madt.svg" alt="" />
+                        <div class="text">Workfare</div>
+                    </div> -->
+                </div>
+            </div>
+            <div class="button-control">
+                <div class="button item1" (click)="updateLineActive(-1)">
+                    <img src="/assets/images/icons/main/polygon.svg" alt="" class="icon-up" />
+                </div>
+                <div class="button item2" (click)="updateLineActive(1)">
+                    <img src="/assets/images/icons/main/downarrow.svg" alt="" class="icon-down" />
+                </div>
+                <div
+                    class="button item3"
+                    (click)="navigate('/main/free')"
+                    [class.active-link]="isRouteActive('/main/free')"
+                >
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/free.svg" alt="" />
+                    </div>
+                    <p>Free</p>
+                </div>
+
+                <div
+                    class="button item4"
+                    (click)="navigate('/main/cash-payment')"
+                    [class.active-link]="isRouteActive('/main/cash-payment')"
+                >
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/coins.svg" alt="" />
+                    </div>
+                    <p>Cash</p>
+                </div>
+                <div class="button item5">
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/msg.svg" alt="" class="icon" />
+                    </div>
+                    <p>FMS Msg</p>
+                </div>
+                <div
+                    class="button item6"
+                    (click)="navigate('/main/breakdown')"
+                    [class.active-link]="isRouteActive('/main/breakdown')"
+                >
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/brkdwn.svg" alt="" />
+                    </div>
+                    <p>Brkdwn</p>
+                </div>
+                <div
+                    class="button item7"
+                    (click)="navigate('/main/redeem')"
+                    [class.active-link]="isRouteActive('/main/redeem')"
+                >
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/redeem.svg" alt="" />
+                    </div>
+                    <p>Redeem</p>
+                </div>
+                <div
+                    class="button item8"
+                    (click)="navigate('/main/front-exit')"
+                    [class.active-link]="isRouteActive('/main/front-exit')"
+                >
+                    <div class="icon">
+                        <img src="/assets/images/icons/main/frontexit.svg" alt="" />
+                    </div>
+                    <p>Front Exit</p>
+                </div>
+            </div>
+        </div>
+        <div class="main-content">
+            <router-outlet></router-outlet>
+            <!-- <div class="service">
+                <div class="info">
+                    <div class="detail">
+                        <div class="information">
+                            <div class="info-items">
+                                <div class="title">SERVICE NUMBER</div>
+                                <div class="number">983M</div>
+                            </div>
+                            <div class="info-route">
+                                <div class="plate-number">PLATE NUMBER: <span class="number">SBS3327</span></div>
+                                <div class="route">
+                                    <div class="label-data">SPID: <span class="data">LDBO(27)</span></div>
+                                    <div class="label-data">DIR: <span class="data">2</span></div>
+                                    <div class="label-data">KM: <span class="data">27.5</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="headway">
+                        <div class="headway-top">
+                            <div class="icon">
+                                <img src="/assets/images/icons/main/headway.svg" alt="" />
+                            </div>
+                            <div class="title-headway">
+                                <div class="lebal-headway">163-sw-290</div>
+                                <div class="time">02:30</div>
+                            </div>
+                        </div>
+                        <div class="headway-bottom">
+                            <div class="icon">
+                                <img src="/assets/images/icons/main/headway2.svg" alt="" />
+                            </div>
+                            <div class="title-headway">
+                                <img src="/assets/images/icons/main/arrow.svg" alt="" />
+                                <div class="title-right">1’</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="group">
+                    @for (item of indicators; track item) {
+                        <div class="indicator" [ngStyle]="{ 'background-color': item.color }">
+                            @if (item.left) {
+                                <div *ngIf="item.left" class="left" [ngStyle]="{ 'background-color': item.badgeColor }">
+                                    {{ item.left }}
+                                </div>
+                            }
+                            @if (item.right) {
+                                <img src="/assets/images/icons/main/star.svg" alt="" class="right" />
+                            }
+                            <div class="matd-indicatior">
+                                <div
+                                    class="name"
+                                    [ngStyle]="{ 'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold' }"
+                                >
+                                    {{ item.name }}
+                                </div>
+                                <div
+                                    class="time"
+                                    [ngStyle]="{ 'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold' }"
+                                >
+                                    {{ item.time }}
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>

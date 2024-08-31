@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="page-header">
+        <div class="button" (click)="backToMain()">
+            <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+            <span>Close</span>
+        </div>
+    </div>
+    <div class="confirm">
+        <div class="confirm-header">Free Ride Mode</div>
+        <p class="confirm-msg">
+            Press Enter to confirm switch <br />
+            All CVs to Free Ride Mode
+        </p>
+        <div class="cf-btn-group">
+            <div class="btn btn-cancel" (click)="backToMain()">
+                <img src="/assets/images/icons/main/close.svg" alt="" />
+                <span>Cancel</span>
+            </div>
+            <div class="btn btn-confirm" (click)="handleFreeRideMode()">
+                <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                <span>Confirm</span>
+            </div>
+        </div>
+    </div>
+</div>

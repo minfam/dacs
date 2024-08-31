@@ -1,0 +1,108 @@
+@import '@styles/_variables.scss';
+
+:host {
+    position: relative;
+}
+
+.show-cv-status {
+    height: 100%;
+    text-align: center;
+
+    .back-button {
+        @include light-back-button;
+        font-weight: $font-weight-bold;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .dia-log {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background-color: $black;
+        opacity: 0.9;
+        z-index: 1000;
+        border-radius: 4px;
+
+        &-main {
+            min-width: 600px;
+            display: inline-block;
+            background-color: $color-bg-dark-1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 40px 24px;
+            border-radius: 8px;
+        }
+
+        &-header {
+            @include flex-center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        &-title {
+            font-size: 24px;
+            font-weight: $font-weight-bold;
+            color: $white;
+        }
+
+        .close-btn {
+            @include flex-center;
+            font-size: 18px;
+            font-weight: $font-weight-bold;
+
+            span {
+                padding-left: 8px;
+            }
+        }
+
+        &-content {
+            font-size: 28px;
+            // margin-bottom: 20px;
+            padding: 6px;
+
+            .table {
+                width: 100%;
+                margin-top: 10px;
+
+                tr {
+                    td {
+                        font-size: 20px;
+                        text-align: left;
+                        vertical-align: middle;
+                        font-weight: $font-weight-medium;
+                    }
+
+                    .row {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 14px 20px;
+                        background-color: $madt-bg-dark-2;
+                        margin: 5px 0;
+                        border-radius: 4px;
+
+                        .left {
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .cv-status {
+                            margin-left: 5px;
+                            color: $red;
+
+                            &-active {
+                                color: $color-green;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

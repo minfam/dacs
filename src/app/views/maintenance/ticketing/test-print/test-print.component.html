@@ -1,0 +1,25 @@
+<div class="test-print-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Test Print</h2>
+        <div class="content">
+            <p>Press “Test Print” button to print receipt.</p>
+            <div class="button" (click)="handleSelect()">
+                <img src="/assets/images/icons/maintenance/print.svg" alt="" />
+                <div class="text">Test Print</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="step-2">
+        <img src="/assets/images/icons/maintenance/big-error.svg" alt="" />
+        <div class="title">Comms Error</div>
+        <div class="content">
+            <h4>Unable to establish a communication with the printer.</h4>
+            <p>Press “Test Print” button to print receipt.</p>
+            <div class="button" (click)="handleFinish()">
+                <img src="/assets/images/icons/maintenance/print.svg" alt="" />
+                <div class="text">Test Print</div>
+            </div>
+        </div>
+    </div>
+</div>

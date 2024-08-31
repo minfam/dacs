@@ -1,0 +1,110 @@
+<div class="service">
+    <div class="info">
+        <div class="detail">
+            <div class="information">
+                <div class="info-items">
+                    <!-- <div class="title">SERVICE NUMBER</div> -->
+                    <div class="number">983M</div>
+                </div>
+                <div class="info-route">
+                    <div class="plate-number">PLATE NUMBER: <span class="number">SBS3327</span></div>
+                    <div class="route">
+                        <div class="label-data">SPID: <span class="data">LDBO(27)</span></div>
+                        <div class="label-data">DIR: <span class="data">2</span></div>
+                        <div class="label-data">KM: <span class="data">27.5</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="headway">
+            <div class="headway-top">
+                <div class="label-headway">163-sw-290</div>
+                <div class="icon">
+                    <img src="/assets/images/icons/main/headway.svg" alt="" />
+                </div>
+                <div class="time">02:30</div>
+            </div>
+            <!-- <div class="headway-bottom">
+                <div class="icon">
+                    <img src="/assets/images/icons/main/headway2.svg" alt="" />
+                </div>
+                <div class="title-headway">
+                    <img src="/assets/images/icons/main/arrow.svg" alt="" />
+                    <div class="title-right">1’</div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- <hr class="line" /> -->
+    <div class="group">
+        <ng-scrollbar #scrollable class="my-scrollbar">
+            @for (item of busStopList$ | async; track item; let idx = $index) {
+                <ng-container *ngIf="lineActive$">
+                    <div id="{{ item.id }}" class="indicator" (click)="selectBusStop(item)">
+                        <!-- [ngStyle]="{ 'background-color': item.color }" -->
+                        <!-- [ngClass]="{ active: (lineActive$ | async) === idx, sticky: idx === 0 }" -->
+
+                        @if ((busStopFareId$ | async) === item.id) {
+                            <div class="left fare">FARE</div>
+                        } @else if (item.left) {
+                            <div *ngIf="item.left" class="left" [ngStyle]="{ 'background-color': item.badgeColor }">
+                                {{ item.isFare ? 'FARE' : item.left }}
+                            </div>
+                        }
+                        @if (item.right) {
+                            <img src="/assets/images/icons/main/star.svg" alt="" class="right" />
+                        }
+                        <div class="matd-indicatior">
+                            <div
+                                class="name"
+                                [ngStyle]="{
+                                    'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold',
+                                    'font-size': item.textStyle === 'lighter' ? '24px' : '28px'
+                                }"
+                            >
+                                {{ item.id }} - {{ item.name }}
+                            </div>
+                            <div
+                                class="time"
+                                [ngStyle]="{
+                                    'font-weight': item.textStyle === 'lighter' ? 'normal' : 'bold',
+                                    'font-size': item.textStyle === 'lighter' ? '24px' : '28px'
+                                }"
+                            >
+                                {{ item.time }}
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            }
+        </ng-scrollbar>
+        <div class="indicator destination">
+            <div class="left">DESTINATION</div>
+            <!-- @if (item.right) {
+                <img src="/assets/images/icons/main/star.svg" alt="" class="right" />
+            } -->
+            <div class="matd-indicatior">
+                <div class="name">
+                    {{ destination.name }}
+                </div>
+                <div class="time">
+                    {{ destination.time }}
+                </div>
+            </div>
+        </div>
+        <div class="indicator bus-stop">
+            <div class="left">TICKETING BUS STOP</div>
+            <!-- @if (item.right) {
+                <img src="/assets/images/icons/main/star.svg" alt="" class="right" />
+            } -->
+            <div class="matd-indicatior">
+                <div class="name">
+                    {{ ticketingBusStop?.name }}
+                </div>
+                <div class="time">
+                    {{ ticketingBusStop?.time }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

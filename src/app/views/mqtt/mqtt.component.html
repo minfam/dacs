@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div>
+        <h1>Mqtt Test Page</h1>
+        @if (!isLoading && !isConnected) {
+            <div>
+                Broker url <br />
+                <br />
+                <input class="broker-input" matInput [(ngModel)]="brokerUrl.host" placeholder="host" />
+                <br />
+                <br />
+                <input class="broker-input" matInput [(ngModel)]="brokerUrl.port" placeholder="port" />
+                <br />
+                <br />
+                <input class="broker-input" matInput [(ngModel)]="brokerUrl.protocol" placeholder="protocol" />
+                <br />
+                <br />
+                <input class="broker-input" matInput [(ngModel)]="brokerUrl.path" placeholder="path" />
+                <br />
+                <br />
+                <button [disabled]="!brokerUrl" mat-raised-button (click)="connectToBroker()" color="primary">
+                    Connect
+                </button>
+            </div>
+        }
+
+        @if (isLoading) {
+            <div>Loading .....</div>
+        }
+
+        @if (!isLoading && isConnected) {
+            <button mat-raised-button (click)="publishTopic('toggle-rear-door')" color="primary">
+                Toggle rear door
+            </button>
+            <button mat-raised-button (click)="publishTopic('main')" color="primary">Go to Main page</button>
+            <button mat-raised-button (click)="publishTopic('ticketing')" color="primary">Go to Ticketing page</button>
+            <button mat-raised-button (click)="publishTopic('maintenance')" color="primary">
+                Go to Maintenance page
+            </button>
+
+            <button mat-raised-button (click)="publishTopic('up', topics.up)" color="primary">UP</button>
+            <button mat-raised-button (click)="publishTopic('down', topics.down)" color="primary">Down</button>
+
+            <button mat-raised-button (click)="disconnect()" color="primary">Disconnect</button>
+        }
+    </div>
+</div>

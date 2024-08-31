@@ -5,11 +5,16 @@
         "baseUrl": "./src",
         "outDir": "./dist/out-tsc",
         "paths": {
-            "@styles/*": ["styles/"],
+            "@styles/*": ["styles/*"],
             "@app/*": ["app/*"],
+            "@data/*": ["app/data/*"],
             "@dummyData/*": ["app/dummyData/*"],
             "@models/*": ["app/models/*"],
-            "@components/*": ["app/components/*"]
+            "@models": ["app/models"],
+            "@components/*": ["app/components/*"],
+            "@views/*": ["app/views/*"],
+            "@store/*": ["app/store/*"],
+            "@services/*": ["app/services/*"]
         },
         "forceConsistentCasingInFileNames": true,
         "strict": true,
@@ -35,5 +40,7 @@
         "strictInjectionParameters": true,
         "strictInputAccessModifiers": true,
         "strictTemplates": true
-    }
+    },
+    "files": ["src/test.ts"],
+    "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
 }

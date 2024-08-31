@@ -1,0 +1,23 @@
+@import '@styles/_variables.scss';
+
+.maintenance-page {
+    height: calc(100vh - $header-footer-height);
+    background: url('/assets/images/icons/ticketing/background.svg') no-repeat center;
+
+    .button-control {
+        @include flex-center;
+        gap: 15px;
+        padding: 10px;
+    }
+
+    .button {
+        @include dark-button;
+        font-size: 24px;
+        font-weight: $font-weight-semi-bold;
+        min-height: 128px;
+        min-width: 292px;
+        &:active {
+            transform: scale(1.01);
+        }
+    }
+}

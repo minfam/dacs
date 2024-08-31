@@ -1,0 +1,75 @@
+<div class="select-boarding-type">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1">
+        <h2 class="title">Select Boarding Type</h2>
+        <div class="content">
+            <div class="row">
+                <p class="label">Set All to AUTO</p>
+                <div class="switch">
+                    <custom-switch
+                        [checked]="boardingType.allAuto"
+                        (onChange)="handleToggleStatus('allAuto')"
+                    ></custom-switch>
+                </div>
+            </div>
+            <div class="row">
+                <p class="label">Set All to EXIT</p>
+                <div class="switch">
+                    <custom-switch
+                        [checked]="boardingType.allExit"
+                        (onChange)="handleToggleStatus('allExit')"
+                    ></custom-switch>
+                </div>
+            </div>
+            <div class="row">
+                <p class="label">Set All to Normal</p>
+                <div class="switch">
+                    <custom-switch
+                        [checked]="boardingType.allNormal"
+                        (onChange)="handleToggleStatus('allNormal')"
+                    ></custom-switch>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 2">
+        <confirm-dialog
+            [title]="
+                selectedBoardingType === 'allAuto'
+                    ? 'Setting All CV to AUTO'
+                    : selectedBoardingType === 'allExit'
+                      ? 'Setting All CV to EXIT'
+                      : selectedBoardingType === 'allNormal'
+                        ? 'Setting All CV to NORMAL'
+                        : ''
+            "
+            [content]="'Press the button to confirm.'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleSetStatus(false)"
+            (onConfirm)="handleSetStatus(true)"
+        >
+        </confirm-dialog>
+    </ng-container>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog
+            [title]="
+                selectedBoardingType === 'allAuto'
+                    ? 'Success All CV set to Auto'
+                    : selectedBoardingType === 'allExit'
+                      ? 'Success All CV set to Exit'
+                      : selectedBoardingType === 'allNormal'
+                        ? 'Success All CV set to Normal'
+                        : ''
+            "
+            [btnOK]="true"
+            (onOK)="handleFinish()"
+        >
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

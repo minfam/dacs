@@ -1,0 +1,19 @@
+<div class="device-operation-content">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <h1 class="device-operation-title">Select Printer Operations</h1>
+    <div class="device-operation-button-group">
+        <button class="device-operation-button" (click)="handleNavigate('/inspector-ticket')">
+            Print Inspector Ticket
+        </button>
+        <button class="device-operation-button" (click)="handleNavigate('/daily-trip-log')">
+            Print Daily Trip Log
+        </button>
+        <button class="device-operation-button" (click)="handleNavigate('/test-receipt')">Print Test Receipt</button>
+        <button class="device-operation-button" (click)="handleNavigate('/retention-ticket')">
+            Print Retention Ticket
+        </button>
+        <button class="device-operation-button" (click)="handleNavigate('/printer-on')">Printer ON</button>
+        <button class="device-operation-button" (click)="handleNavigate('/printer-off')">Printer OFF</button>
+        <button class="device-operation-button" (click)="handleNavigate('/status')">Printer Status</button>
+    </div>
+</div>

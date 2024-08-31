@@ -1,0 +1,36 @@
+<div class="header">
+    <div class="navigation-section">
+        <div class="logout-button">
+            <img src="/assets/images/icons/main/logout.svg" alt="" />
+            Logout
+        </div>
+        <div class="endtrip-button">
+            <img src="/assets/images/icons/main/stop.svg" alt="" />
+            End Trip
+        </div>
+    </div>
+
+    <div class="status-indicators">
+        <div class="status">
+            <mat-icon>checked</mat-icon>
+            BOLC
+        </div>
+        <div class="status">
+            <mat-icon>checked</mat-icon>
+            Fare
+        </div>
+        <div class="status">
+            <mat-icon>checked</mat-icon>
+            FMS
+        </div>
+        <div class="status" [ngClass]="true ? 'error' : ''">
+            <mat-icon *ngIf="true">close</mat-icon>
+            <mat-icon *ngIf="!true">checked</mat-icon>
+            CRP
+        </div>
+    </div>
+    <div class="datetime-section">
+        <div class="date">{{ currentDate | date: 'MM/dd/yyyy' }}</div>
+        <div class="time">{{ currentDate | date: 'HH:mm:ss' }}</div>
+    </div>
+</div>

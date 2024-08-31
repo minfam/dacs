@@ -1,0 +1,49 @@
+<div class="ticketing-console-page">
+    <ul>
+        <li class="row">
+            <div class="left">Deck Type</div>
+            <div class="right" (click)="handleNavigate('/deck-type')">
+                <p class="value">Single</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left">BLS</div>
+            <div class="right" (click)="handleNavigate('/bls')">
+                <p class="value">Enabled</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left">Time</div>
+            <div class="right" (click)="handleNavigate('/time-setting')">
+                <p class="value">12:00:00</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left">Date</div>
+            <div class="right" (click)="handleNavigate('/date-setting')">
+                <p class="value">12/03/2024</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left">Bus ID</div>
+            <div class="right">
+                <p class="value">SBS4567</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left">Complimentary Days</div>
+            <div class="right" (click)="handleNavigate('/complimentary-day')">
+                <p class="value">30</p>
+                <mat-icon>chevron_right</mat-icon>
+            </div>
+        </li>
+        <li class="row">
+            <div class="left" (click)="handleNavigate('/delete-parameter')">Delete Parameters</div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,16 @@
+<div *ngIf="layout === 'numeric'" class="numeric-keyboard">
+    <button class="btn" (click)="handleChangeInput($event)">1</button>
+    <button class="btn" (click)="handleChangeInput($event)">2</button>
+    <button class="btn" (click)="handleChangeInput($event)">3</button>
+    <button class="btn" (click)="handleChangeInput($event)">4</button>
+    <button class="btn" (click)="handleChangeInput($event)">5</button>
+    <button class="btn btn-delete" id="backspaceKey" (click)="handleChangeInput($event)">
+        <img src="/assets/images/icons/maintenance/keyboard-delete.svg" alt="" />
+    </button>
+    <button class="btn" (click)="handleChangeInput($event)">6</button>
+    <button class="btn" (click)="handleChangeInput($event)">7</button>
+    <button class="btn" (click)="handleChangeInput($event)">8</button>
+    <button class="btn" (click)="handleChangeInput($event)">9</button>
+    <button class="btn" (click)="handleChangeInput($event)">0</button>
+    <button class="btn btn-confirm" id="enterKey" (click)="handleChangeInput($event)">Confirm</button>
+</div>

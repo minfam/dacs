@@ -1,0 +1,88 @@
+<div class="device-operation-page">
+    <div class="layout">
+        <div class="madt-breadcrumb">
+            <img src="/assets/images/icons/ticketing/ticket.svg" />
+            <span>Ticketing</span>
+            <span>></span>
+            <p>{{ activeMenu?.label || '' }}</p>
+        </div>
+        <div class="madt-main">
+            <div class="madt-side-nav">
+                <!-- <div class="menu"> -->
+                <ng-scrollbar #scrollable class="menu">
+                    @for (menu of menus; track menu.id) {
+                        <a
+                            class="menu-item"
+                            [ngClass]="{ active: activeMenu?.id === menu.id }"
+                            [routerLink]="'/ticketing' + [menu.route]"
+                            (click)="handleActiveMenu(menu)"
+                        >
+                            {{ menu.label }}
+                        </a>
+                    }
+                </ng-scrollbar>
+                <!-- </div> -->
+                <!-- <div class="menu-direction"><mat-icon>keyboard_arrow_up</mat-icon></div> -->
+            </div>
+            <div class="madt-content">
+                <!-- <div class="device-operation-content">
+                    <div class="back-button" (click)="goBack()">Back</div>
+                    <h1 class="device-operation-title">Select {{ activeMenu?.label }}</h1>
+
+                    <ng-container *ngIf="activeMenu?.id === 'cv-operation'">
+                        <div class="device-operation-button-group">
+                            <button class="device-operation-button" (click)="handleNavigate('/show-cv-status')">
+                                Show CV Status
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/set-cv')">
+                                Set CV ENTRY/EXIT
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/cv-mode-control')">
+                                CV Mode Control
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/power-all-cv-on')">
+                                Power All CV ON
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/power-all-cv-off')">
+                                Power all CV OFF
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/cv-power-control')">
+                                CV Power Control
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/reset-all-cv')">
+                                Reset All CV
+                            </button>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="activeMenu?.id === 'bls-operation'">
+                        <div class="device-operation-button-group">
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                Show CV Status
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                CV Mode Control
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                Reset All CV
+                            </button>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="activeMenu?.id === 'printer-operation'">
+                        <div class="device-operation-button-group">
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                Show CV Status
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                CV Mode Control
+                            </button>
+                            <button class="device-operation-button" (click)="handleNavigate('/link')">
+                                Reset All CV
+                            </button>
+                        </div>
+                    </ng-container>
+                </div> -->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

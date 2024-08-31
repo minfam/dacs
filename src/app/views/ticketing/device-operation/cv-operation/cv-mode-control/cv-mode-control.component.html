@@ -1,0 +1,64 @@
+<div class="cv-mode-control">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1">
+        <h2 class="title">CV Mode Control</h2>
+        <div class="content">
+            <div class="row">
+                <p class="label">Always in Service</p>
+                <div class="switch">
+                    <custom-switch
+                        [checked]="controlMode.alwaysInService"
+                        (onChange)="handleToggleStatus('alwaysInService')"
+                    ></custom-switch>
+                </div>
+            </div>
+            <div class="row">
+                <p class="label">Normal Service</p>
+                <div class="switch">
+                    <custom-switch
+                        [checked]="controlMode.normalService"
+                        (onChange)="handleToggleStatus('normalService')"
+                    ></custom-switch>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 2">
+        <confirm-dialog
+            [title]="
+                selectedControlMode === 'alwaysInService'
+                    ? 'Setting All CV to Always in Service'
+                    : selectedControlMode === 'normalService'
+                      ? 'Setting All CV to Normal Service'
+                      : ''
+            "
+            [content]="'Press the button to confirm.'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleSetStatus(false)"
+            (onConfirm)="handleSetStatus(true)"
+        >
+        </confirm-dialog>
+    </ng-container>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog [btnOK]="true" (onOK)="handleFinish()">
+            @if (selectedControlMode === 'alwaysInService') {
+                <h3 class="dialog-title" title>
+                    Successfully Set <br />
+                    Always in Service
+                </h3>
+            }
+            @if (selectedControlMode === 'normalService') {
+                <h3 class="dialog-title" title>
+                    Success All CV set to <br />
+                    Normal Service
+                </h3>
+            }
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

@@ -10,7 +10,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 1. Run `npm install` to install all the packages.
 
-2 Run `npm install -g @angular/cli@17.0.10`
+2. Run `npm install -g @angular/cli@17.0.10`
 
 3. Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 

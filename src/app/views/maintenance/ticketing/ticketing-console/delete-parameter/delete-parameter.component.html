@@ -1,0 +1,35 @@
+<div class="delete-parameter">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1">
+        <h2 class="title">Delete Parameters</h2>
+        <div class="content">
+            <p class="label">Press Delete Button to delete parameters.</p>
+            <div class="btn-group">
+                <button class="button" (click)="handleSelectToDelete()">
+                    <img src="/assets/images/icons/main/close.svg" alt="" />
+                    <div class="text">Delete Parameters</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 2">
+        <confirm-dialog
+            title="This will Delete All Parameters FIle."
+            [content]="'Do you want to Delete?'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleDeleteParameter(false)"
+            (onConfirm)="handleDeleteParameter(true)"
+        >
+        </confirm-dialog>
+    </ng-container>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog title="Success All Parameters File has been Deleted." [btnOK]="true" (onOK)="handleFinish()">
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

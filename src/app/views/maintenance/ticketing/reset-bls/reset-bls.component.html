@@ -1,0 +1,29 @@
+<div class="test-print-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Reset BLS Software</h2>
+        <div class="content">
+            <p>Press Reset Button to Reset</p>
+            <div class="button" (click)="handleSelect()">
+                <mat-icon>replay</mat-icon>
+                <div class="text">Reset</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Reset Confirmation</h3>
+            <div class="dia-log-content">Press the button to confirm.</div>
+            <div class="btn-group">
+                <div class="button button-cancel" (click)="handleFinish()">
+                    <img src="/assets/images/icons/main/close.svg" alt="" />
+                    <span>Cancel</span>
+                </div>
+                <div class="button button-confirm" (click)="handleFinish()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <span>Confirm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

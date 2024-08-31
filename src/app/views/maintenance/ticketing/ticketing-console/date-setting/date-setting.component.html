@@ -1,0 +1,46 @@
+<div class="date-setting">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1">
+        <h2 class="title">Set Date</h2>
+        <div class="content">
+            <p class="label">DD/MM/YYYY</p>
+            <p class="value">{{ currentDate }}</p>
+            <div class="btn-group">
+                <button class="button" (click)="handleSetTime()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <div class="text">Set Date</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="step === 2">
+        <h2 class="title">Set Date</h2>
+        <div class="content">
+            <p class="label">DD/MM/YYYY</p>
+            <p class="value">{{ currentDate }}</p>
+            <div class="input-group">
+                <p>Input Date</p>
+                <input id="inputField" />
+            </div>
+        </div>
+
+        <div class="keyboard">
+            <custom-keyboard [layout]="'numeric'" (onKeyPress)="handleChangeInput($event)"></custom-keyboard>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog
+            [title]="success ? 'Date Successfully Set' : 'Invalid Entry'"
+            [btnOK]="true"
+            (onOK)="handleFinish()"
+        >
+            <div *ngIf="success" style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+            <div *ngIf="!success" style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-error.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

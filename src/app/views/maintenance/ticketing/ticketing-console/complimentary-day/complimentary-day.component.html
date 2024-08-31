@@ -1,0 +1,45 @@
+<div class="complimentary-day">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1">
+        <h2 class="title">Complimentary Days</h2>
+        <div class="content">
+            <p class="label">
+                Current Days: <span class="value">{{ currentDays }}</span>
+            </p>
+            <div class="btn-group">
+                <button class="button" (click)="handleSetTime()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <div class="text">Set Complimentary Days</div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="step === 2">
+        <h2 class="title">Set Complimentary Days</h2>
+        <div class="content">
+            <p class="label">
+                Current Days: <span class="value">{{ currentDays }}</span>
+            </p>
+            <div class="input-group">
+                <p>Input Current Days</p>
+                <input id="inputField" />
+            </div>
+        </div>
+
+        <div class="keyboard">
+            <custom-keyboard [layout]="'numeric'" (onKeyPress)="handleChangeInput($event)"></custom-keyboard>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog [btnOK]="true" (onOK)="handleFinish()">
+            <h3 class="dialog-title" title>
+                Successfully Set <br />
+                Complimentary Days
+            </h3>
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

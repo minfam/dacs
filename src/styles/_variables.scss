@@ -4,47 +4,29 @@ $initial: initial;
 // Colors
 $color-white: #fff;
 $color-black: #000;
-$color-primary: #1a2733;
-$color-primary-1: #ffb300;
-$color-secondary: #b21010;
-$color-secondary-1: #049f9a;
-$color-secondary-2: #c25500;
-$color-secondary-3: #0f65a1;
-$color-secondary-4: #00883f;
-$color-secondary-5: #35485a;
-$color-neutral: #bcbcbc;
-$color-neutral-1: #eaecee;
-$color-neutral-2: #10151b;
-$color-neutral-3: #191f24;
-$color-neutral-4: #d6edff;
+$color-yellow: #ffb000;
+$color-green: #61a600;
 
-$color-text: #2b3c4d;
-$color-gray: #9aa0a7;
-$color-gray-outline: #8a8a8a;
-$color-footer: #c9c9c9;
-$color-border: #e3e3e3;
-$color-border-dark-bg: #667583;
-$color-border-light: #f1f1f1;
-$color-placeholder: #a6a6a6;
-$color-description: #666;
-$color-description-dark-bg: #c2c2c2;
-$color-bg-dark: #2b3c4d;
-$color-bg-light: #fafafa;
-$color-menu-hover: #00a3e0;
-$color-menu-hover-dark-bg: #bfeeff;
-$color-btn-primary: #43b02b;
-$color-btn-primary-hover: #68c830;
-$color-btn-secondary: #00a3e0;
-$color-btn-secondary-hover: #06b4f5;
-$color-range-slider: #dadada;
-$color-error: #e22134;
-$color-title-med: #064d79;
+$color-bg-black-1: #00151a;
+$color-bg-dark-1: #0e2a32;
+$color-bg-charcoal: #4a5964;
+
+$madt-color-red: #c80000;
+$madt-color-teal: #00414e;
+$madt-color-green: #61a600;
+$madt-color-cement: #828282;
+$madt-bg-dark-2: #17333d;
+$madt-bg-dark-3: #0c242e;
+$madt-bg-charcoal-2: #000d10;
+$madt-bg-light-1: #017a8d;
 
 // Font weights
 $font-weight-light: 300;
 $font-weight-regular: 400;
 $font-weight-medium: 500;
+$font-weight-semi-bold: 600;
 $font-weight-bold: 700;
+$font-weight-extra-bold: 800;
 
 // Font size
 $font-size-default: 1.6rem;
@@ -69,21 +51,71 @@ $coral: #cf6148;
 $red: hsl(0, 100%, 50%); //#ff0000
 $orange-red: hsl(16, 85%, 52%); //#ed541d
 
-//Others
-$linkedin-blue: hsl(201, 98%, 35%); //#0274b3
-$twitter-blue: hsl(196, 100%, 46%); //#00aced
-$letter-brown: hsl(40, 32%, 40%); //#887246
-$sky-blue: #9fc3e5;
-$turquoise: #148282;
-$deep-blue: #23559b;
-$linkedIn-color: #0a77b5;
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-//article
-$article-gray: #343434;
-$article-gray-light: rgba(52, 52, 52, 0.8);
-$article-green: #448162;
-$article-red: #cb4b2e;
-$tile-spacing: 20px;
+@mixin dark-button {
+    border-radius: 5px;
+    text-align: center;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: linear-gradient(to bottom right, #99b3b8 18%, #2e6772 50%);
+    color: $white;
+    border: none;
+    outline: none;
+    transition: 0.2s ease-in-out 0s;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        height: calc(100% - 2px);
+        width: calc(100% - 2px);
+        background: linear-gradient(to bottom, #00414e 0%, #225c68 100%);
+        border-radius: 5px;
+        z-index: -1;
+        transition: all 0.2s ease 0.3s;
+    }
+}
+
+@mixin light-back-button {
+    margin-left: 10px;
+    @include flex-center;
+    border-radius: 5px;
+    width: 60px;
+    height: 32px;
+    background-color: $white;
+    color: $black;
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+
+    &:before {
+        content: '';
+        width: 24px;
+        height: 24px;
+        background-color: $white;
+        position: absolute;
+        top: 4px;
+        left: -9px;
+        border-radius: 5px;
+        transform: rotate(45deg);
+        z-index: -1;
+    }
+}
+
+$header-footer-height: 80px;
+$breadcrumb-height: 64px;
 
 //========---------- Fonts ----------========
 $font-inter: 'Inter';
@@ -93,42 +125,6 @@ $font-inter: 'Inter';
 // $font-heit-font-face: 'HeiT ASC Light W40 Regular';
 // $font-univers: $font-univers-font-face, Arial, sans-serif;
 // $font-heit: $font-heit-font-face, Arial, sans-serif;
-
-//========---------- Structure ----------========
-$external-horizontal-gutters: 7%;
-$vertical-block-margin: 40px;
-$article-outer-gutters: 12%;
-$article-inner-gutters: 80px;
-$header-height: 116px;
-$upper-header-height: 36px;
-$article-header-height: 40px;
-$popin-layer-index: 2000;
-$vertical-tile-padding: 55px;
-$horizontal-tile-padding: 12.5%;
-$funds-page-gutters: (
-    'tab': 25px,
-    'mob': 0,
-);
-$footer-height: 200px;
-$footer-margin-top: 100px;
-$hub-page-width: 875px;
-$hub-page-padding-desktop: 40px;
-$hub-page-padding-mob: 20px;
-
-//Article font size
-$article-title-font-size: 2.8rem;
-$article-paragraph-font-size: 1.8rem;
-$article-paragraph-line-height: 2.8rem;
-$article-paragraph-font-weight: 100;
-
-//Mobile and tablet
-$tablet-horizontal-margin: 40px;
-$article-outer-gutters-tab: 40px;
-$mobile-horizontal-margin: 10px;
-$header-mobile-height: 60px;
-
-//========---------- Animation ----------========
-$snap-animation-duration: 0.4s;
 
 //========---------- Structure ----------========
 $path-fonts: '../assets/fonts/';

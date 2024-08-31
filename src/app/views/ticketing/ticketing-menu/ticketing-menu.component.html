@@ -1,0 +1,24 @@
+<div class="ticketing-page">
+    <div class="button-control">
+        @for (button of buttons; track button) {
+            <button class="button" (click)="handleNavigate(button.url)">
+                <div class="icon-text">
+                    <img style="margin-bottom: 10px" src="{{ button.icon }}" alt="" />
+                    <div class="text">{{ button.title }}</div>
+                </div>
+            </button>
+        }
+    </div>
+
+    <ng-container *ngIf="displayTransactionPopUp">
+        <confirm-dialog
+            [title]="'Proceed to wait for Card Details'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleTransactionPopUp(false)"
+            (onConfirm)="handleTransactionPopUp(true)"
+        >
+            <div class="dialog-content" content>From the BV1 Unit Press Enter <br />to Confirm</div>
+        </confirm-dialog>
+    </ng-container>
+</div>

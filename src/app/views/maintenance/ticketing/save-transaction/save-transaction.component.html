@@ -1,0 +1,35 @@
+<div class="save-transaction-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Save Transaction</h2>
+        <div class="content">
+            <p>Press the “Save Transaction" button to begin loading parameters.</p>
+            <div class="button" (click)="handleSaveTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Save Transactions</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Saving Transactions</h3>
+            <div class="dia-log-content">Please wait...</div>
+            <div class="progress-bar">
+                <div class="progress" [ngStyle]="{ width: progress + '%' }"></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 3" class="dia-log step-3">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </h3>
+            <div class="dia-log-content">Transaction Files Save Successfully</div>
+            <div class="button" (click)="handleFinishTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Okay</div>
+            </div>
+        </div>
+    </div>
+</div>

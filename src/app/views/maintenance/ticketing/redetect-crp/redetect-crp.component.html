@@ -1,0 +1,35 @@
+<div class="redetect-crp-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Redetect CRP</h2>
+        <div class="content">
+            <p>Press the Scan button to begin scanning.</p>
+            <div class="button" (click)="handleSaveTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Scan</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Scanning for CRP Device</h3>
+            <div class="dia-log-content">Please wait...</div>
+            <div class="progress-bar">
+                <div class="progress" [ngStyle]="{ width: progress + '%' }"></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 3" class="dia-log step-3">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </h3>
+            <div class="dia-log-content">CRP Installed</div>
+            <div class="button" (click)="handleFinishTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Okay</div>
+            </div>
+        </div>
+    </div>
+</div>

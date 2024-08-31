@@ -1,0 +1,31 @@
+@import '@styles/_variables.scss';
+
+.numeric-keyboard {
+    display: grid;
+    grid-gap: 10px;
+    background-color: $black;
+    width: 100%;
+    grid-template-columns: repeat(6, 1fr);
+
+    .btn {
+        @include dark-button;
+        height: 64px;
+        font-size: 24px;
+        font-weight: $font-weight-semi-bold;
+
+        &-delete {
+            &:before {
+                background: $color-bg-charcoal;
+            }
+        }
+        &-confirm {
+            &:before {
+                background: $madt-bg-light-1;
+            }
+        }
+
+        > img {
+            pointer-events: none;
+        }
+    }
+}

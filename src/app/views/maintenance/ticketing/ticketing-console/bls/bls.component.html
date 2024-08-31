@@ -1,0 +1,45 @@
+<div class="bls">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">BLS Status</h2>
+        <div class="content">
+            <p class="label">
+                Status: <span class="value">{{ enabled ? 'Enabled' : 'Disabled' }}</span>
+            </p>
+            <div class="btn-group">
+                <button class="button" [disabled]="!enabled" (click)="handleSelectStatus(false)">
+                    <img src="/assets/images/icons/maintenance/stop.svg" alt="" />
+                    <div class="text">Disable</div>
+                </button>
+                <button class="button" [disabled]="enabled" (click)="handleSelectStatus(true)">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <div class="text">Enabled</div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 2">
+        <confirm-dialog
+            title="Confirmation"
+            [content]="enabled ? 'BLS Status Enable?' : 'BLS Status Disable?'"
+            [btnCancel]="true"
+            [btnConfirm]="true"
+            (onCancel)="handleUpdateStatus(false)"
+            (onConfirm)="handleUpdateStatus(true)"
+        >
+        </confirm-dialog>
+    </ng-container>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog
+            [title]="enabled ? 'Success BLS Status is Enabled' : 'Success BLS Status is Disabled'"
+            [btnOK]="true"
+            (onOK)="handleFinish()"
+        >
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

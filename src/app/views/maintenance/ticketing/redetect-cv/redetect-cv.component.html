@@ -1,0 +1,66 @@
+<div class="redetect-cv-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Redetect CV</h2>
+        <div class="content">
+            <p>Press the Scan button to begin scanning for all available CVs.</p>
+            <div class="button" (click)="handleSaveTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Scan</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Scanning for BEV/BXV devices.</h3>
+            <div class="dia-log-content">Please wait...</div>
+            <div class="progress-bar">
+                <div class="progress" [ngStyle]="{ width: progress + '%' }"></div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="step === 3" class="dia-log step-3">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Confirmed Installed BEV/BXV</h3>
+            <div class="dia-log-content">
+                <table class="table">
+                    <tr>
+                        <th>BEV1</th>
+                        <td>Installed</td>
+                        <td>Front</td>
+                    </tr>
+                    <tr>
+                        <th>BEV2</th>
+                        <td>Not Installed</td>
+                        <td>Front</td>
+                    </tr>
+                    <tr>
+                        <th>BXV1</th>
+                        <td>Not Installed</td>
+                        <td>Rear1</td>
+                    </tr>
+                    <tr>
+                        <th>BXV2</th>
+                        <td>Not Installed</td>
+                        <td>Rear1</td>
+                    </tr>
+                    <tr>
+                        <th>BXV3</th>
+                        <td>Not Installed</td>
+                        <td>Rear2</td>
+                    </tr>
+                    <tr>
+                        <th>BXV4</th>
+                        <td>Not Installed</td>
+                        <td>Rear2</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="button" (click)="handleFinishTransaction()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Okay</div>
+            </div>
+        </div>
+    </div>
+</div>

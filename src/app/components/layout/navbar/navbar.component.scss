@@ -20,6 +20,7 @@ $header-footer-height: 64px;
         gap: 10px;
         cursor: pointer;
         color: #ffffff;
+        transition: all ease-in-out 0.3s;
 
         &:not(:last-child) {
             border-right: 1px solid rgba($separator-color, 0.25);

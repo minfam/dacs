@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit {
         this.error = false;
         if (this.form.valid && this.form.value?.username === User?.name && this.form.value?.password === User?.value) {
             localStorage.setItem('keys', User?.sign);
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['/main']);
         } else {
             this.error = true;
         }

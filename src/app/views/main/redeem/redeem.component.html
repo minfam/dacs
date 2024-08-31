@@ -1,0 +1,11 @@
+<div class="redeem">
+    <confirm-dialog
+        [title]="'Redeem Complimentary Ticket?'"
+        [content]="'Press Enter to Confirm'"
+        [btnCancel]="true"
+        [btnConfirm]="true"
+        (onCancel)="handleRedeem(false)"
+        (onConfirm)="handleRedeem(true)"
+    >
+    </confirm-dialog>
+</div>

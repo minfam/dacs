@@ -1,0 +1,154 @@
+<div class="container">
+    <ng-container *ngIf="step === 0">
+        <div class="page-header">
+            <h2>Fare</h2>
+            <div class="button-group">
+                <div class="tk-button" [class.active]="fareMode === 'single'" (click)="setFareMode('single')">
+                    Single Ticket
+                </div>
+                <div class="tk-button" [class.active]="fareMode === 'multi'" (click)="setFareMode('multi')">
+                    Multiple Ticket
+                </div>
+            </div>
+            <div class="button" (click)="backToMain()">
+                <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                <span>Close</span>
+            </div>
+        </div>
+
+        <div class="cash-container">
+            <div class="cash-block adult-cash">
+                <div class="cash-title">
+                    <img src="/assets/images/icons/main/adult-cash.svg" alt="" />
+                    <h4>Adult</h4>
+                </div>
+                <div class="cash-btn-block">
+                    @for (cashValue of adultValues; track cashValue) {
+                        <div class="cash-btn-wrap" (click)="setCash('Adult', cashValue)">
+                            <div class="cash-btn" [ngClass]="{ active: singleCashValue === cashValue }">
+                                <!-- <div class="cash-img">
+                                    <img src="/assets/images/icons/main/adult-cash.svg" alt="" />
+                                </div> -->
+                                <div class="cash-value">{{ cashValue }}</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="cash-block senior-cash">
+                <div class="cash-title">
+                    <img src="/assets/images/icons/main/senior-cash.svg" alt="" />
+                    <h4>Senior</h4>
+                </div>
+                <div class="cash-btn-block">
+                    @for (cashValue of seniorValues; track cashValue) {
+                        <div class="cash-btn-wrap" (click)="setCash('Senior', cashValue)">
+                            <div class="cash-btn" [ngClass]="{ active: singleCashValue === cashValue }">
+                                <!-- <div class="cash-img">
+                                <img src="/assets/images/icons/main/senior-cash.svg" alt="" />
+                            </div> -->
+                                <div class="cash-value">{{ cashValue }}</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="cash-block child-cash">
+                <div class="cash-title">
+                    <img src="/assets/images/icons/main/child-cash.svg" alt="" />
+                    <h4>Child</h4>
+                </div>
+                <div class="cash-btn-block">
+                    @for (cashValue of childValues; track cashValue) {
+                        <div class="cash-btn-wrap" (click)="setCash('Child', cashValue)">
+                            <div class="cash-btn" [ngClass]="{ active: singleCashValue === cashValue }">
+                                <!-- <div class="cash-img">
+                                <img src="/assets/images/icons/main/child-cash.svg" alt="" />
+                            </div> -->
+                                <div class="cash-value">{{ cashValue }}</div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button class="btn" (click)="handlePrintTicket()">
+                <img src="/assets/images/icons/maintenance/print.svg" alt="" />
+                <div class="text">Print Test Ticket</div>
+            </button>
+
+            <button class="btn">
+                <img src="/assets/images/icons/maintenance/print.svg" alt="" />
+                <div class="text">Fare Box</div>
+            </button>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="step === 1">
+        <ng-container *ngIf="fareMode === 'single'">
+            <div class="back-button" (click)="goBack()">Back</div>
+            <div class="confirm">
+                <div class="confirm-header">
+                    <span>{{ cashType }} cash fare:</span>
+                    <span>${{ singleCashValue / 100 }}</span>
+                </div>
+                <p class="confirm-msg">Confirm to print the ticket?</p>
+                <div class="cf-btn-group">
+                    <div class="btn btn-cancel" (click)="goBack()">
+                        <img src="/assets/images/icons/main/close.svg" alt="" />
+                        <span>Cancel</span>
+                    </div>
+                    <div class="btn btn-confirm" (click)="handlePrintingTicket()">
+                        <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                        <span>Confirm</span>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="fareMode !== 'single'">
+            <div class="multiple">
+                <div class="back-button" (click)="goBack()">Back</div>
+                <div class="confirm">
+                    <div class="confirm-header">
+                        <span>{{ cashType }} cash fare:</span>
+                        <span>${{ (quantity || 1) * (singleCashValue / 100) }}</span>
+                    </div>
+                    <p class="confirm-msg">Confirm to print the ticket?</p>
+
+                    <div class="input-group">
+                        <p>Input Number of Cash Receipt to Print</p>
+                        <input id="inputField" />
+                    </div>
+
+                    <div class="keyboard">
+                        <custom-keyboard
+                            [layout]="'numeric'"
+                            (onKeyPress)="handleChangeInput($event)"
+                        ></custom-keyboard>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </ng-container>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Printing Ticket.</h3>
+            <div class="dia-log-content">Please wait...</div>
+            <div class="progress-bar">
+                <div class="progress" [ngStyle]="{ width: progress + '%' }"></div>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 3">
+        <confirm-dialog [title]="'Successfully Print Ticket.'" [btnOK]="true" (onOK)="handleFinish()">
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

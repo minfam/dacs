@@ -1,0 +1,32 @@
+<div class="maintenance-ticketing-page">
+    <div class="layout">
+        <div class="madt-breadcrumb">
+            <mat-icon>settings</mat-icon>
+            <span>Maintenance</span>
+            <span>></span>
+            <p>{{ activeMenu?.label || '' }}</p>
+        </div>
+        <div class="madt-main">
+            <div class="madt-side-nav">
+                <!-- <div class="menu"> -->
+                <ng-scrollbar #scrollable class="menu">
+                    @for (menu of menus; track menu.id) {
+                        <a
+                            class="menu-item"
+                            [routerLink]="'/maintenance/ticketing' + [menu.route]"
+                            [ngClass]="{ active: activeMenu?.id === menu.id }"
+                            (click)="handleActiveMenu(menu)"
+                        >
+                            {{ menu.label }}
+                        </a>
+                    }
+                </ng-scrollbar>
+                <!-- </div> -->
+                <div class="menu-direction"><mat-icon>keyboard_arrow_up</mat-icon></div>
+            </div>
+            <div class="madt-content">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

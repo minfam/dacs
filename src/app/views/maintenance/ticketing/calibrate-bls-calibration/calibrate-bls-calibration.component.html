@@ -1,0 +1,69 @@
+<div class="calibrate-bls-calibration-page" [ngSwitch]="step">
+    <div *ngSwitchCase="1" class="step-1">
+        <h2 class="title">BLS Calibration</h2>
+        <div class="content">
+            <p>Press Start to Calibrate or Stop to End Calibration</p>
+            <div class="btn-group">
+                <div class="button" (click)="handleSelect(1)">
+                    <img src="/assets/images/icons/maintenance/stop.svg" alt="" />
+                    <div class="text">Stop</div>
+                </div>
+                <div class="button" (click)="handleSelect(2)">
+                    <mat-icon>check</mat-icon>
+                    <div class="text">Start</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="2" class="step-2">
+        <h2 class="title">Calibrating...</h2>
+        <div class="content">
+            <p>Press Start to Calibrate or Stop to End Calibration</p>
+            <div class="btn-group">
+                <div class="button" (click)="handleSelect(1)">
+                    <img src="/assets/images/icons/maintenance/stop.svg" alt="" />
+                    <div class="text">Stop</div>
+                </div>
+                <div class="button" (click)="handleSelect(3)">
+                    <mat-icon>check</mat-icon>
+                    <div class="text">Start</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="3" class="dia-log step-3">
+        <div class="dia-log-main">
+            <div class="dia-log-title">Send Command to BLS</div>
+            <div class="button" (click)="handleSelect(4)">
+                <mat-icon>check</mat-icon>
+                <div class="text">Confirm</div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="4" class="step-4">
+        <h2 class="title">Enter Distance in meters</h2>
+        <div class="content">
+            <div class="input-group">
+                <p>Distance in meters</p>
+                <input id="inputField" />
+            </div>
+        </div>
+        <div class="keyboard">
+            <custom-keyboard [layout]="'numeric'" (onKeyPress)="handleChangeInput($event)"></custom-keyboard>
+        </div>
+    </div>
+
+    <div *ngSwitchCase="5" class="dia-log step-5">
+        <div class="dia-log-main">
+            <div class="dia-log-title">Calculated Calibration</div>
+            <div class="dia-log-content">Odometer Factor is {{ inputValue }}</div>
+            <div class="button" (click)="handleFinish()">
+                <mat-icon>check</mat-icon>
+                <div class="text">Confirm</div>
+            </div>
+        </div>
+    </div>
+</div>

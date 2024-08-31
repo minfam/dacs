@@ -1,0 +1,128 @@
+<div class="deck-type">
+    <div class="back-button" (click)="goBack()">Back</div>
+    <!-- <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Deck Type</h2>
+        <div class="content">
+            <p class="label">Value: <span class="value">Single</span></p>
+            <div class="button" (click)="handleSelect()">
+                <img src="/assets/images/icons/maintenance/default-setting.svg" alt="" />
+                <div class="text">Confirm</div>
+            </div>
+        </div>
+    </div> -->
+
+    <div *ngIf="step === 1" class="dia-log">
+        <div class="dia-log-main">
+            <div class="dia-log-header">
+                <h3 class="dia-log-title">Select Bus Deck Type</h3>
+                <div class="close-btn" (click)="handleCloseDeckType()">
+                    <img src="/assets/images/icons/main/close-circle.svg" alt="" />
+                    <span>Close</span>
+                </div>
+            </div>
+            <div class="dia-log-content">
+                <table class="deck-type-table stripped">
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleChangeDeckType('single')">
+                                <img
+                                    *ngIf="deckType === 'single'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="deckType !== 'single'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Single</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleChangeDeckType('db2doors')">
+                                <img
+                                    *ngIf="deckType === 'db2doors'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="deckType !== 'db2doors'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Double 2 Doors</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleChangeDeckType('db3doors')">
+                                <img
+                                    *ngIf="deckType === 'db3doors'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="deckType !== 'db3doors'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Double 3 Doors</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleChangeDeckType('longBus')">
+                                <img
+                                    *ngIf="deckType === 'longBus'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="deckType !== 'longBus'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>Long Bus</td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <div class="radio" (click)="handleChangeDeckType('bcv')">
+                                <img
+                                    *ngIf="deckType === 'bcv'"
+                                    src="/assets/images/icons/maintenance/selected.svg"
+                                    alt=""
+                                />
+                                <img
+                                    *ngIf="deckType !== 'bcv'"
+                                    src="/assets/images/icons/maintenance/un-select.svg"
+                                    alt=""
+                                />
+                            </div>
+                        </th>
+                        <td>1 BCV</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="btn-group">
+                <div class="button button-confirm" (click)="handleConfirmDeckType()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <span class="text">Confirm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="step === 2">
+        <confirm-dialog [title]="'Success Bus Deck Type has been changed.'" [btnOK]="true" (onOK)="handleFinish()">
+            <div style="margin-bottom: 20px" icon>
+                <img src="/assets/images/icons/maintenance/big-success.svg" alt="" />
+            </div>
+        </confirm-dialog>
+    </ng-container>
+</div>

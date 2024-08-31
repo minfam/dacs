@@ -1,0 +1,39 @@
+<div class="calibrate-bls-manual-input-page">
+    <div *ngIf="step === 1" class="step-1">
+        <h2 class="title">Manual Input</h2>
+        <div class="content">
+            <div class="flex">
+                <div>Active Calib Factor:</div>
+                <div>330</div>
+            </div>
+            <div class="flex">
+                <div>Parameter Calib Factor:</div>
+                <div>350</div>
+            </div>
+            <div class="input-group">
+                <p>New BLS Calib Factor</p>
+                <input id="inputField" />
+            </div>
+        </div>
+        <div class="keyboard">
+            <custom-keyboard [layout]="'numeric'" (onKeyPress)="handleChangeInput($event)"></custom-keyboard>
+        </div>
+    </div>
+
+    <div *ngIf="step === 2" class="dia-log step-2">
+        <div class="dia-log-main">
+            <h3 class="dia-log-title">Confirmation</h3>
+            <div class="dia-log-content">New Calibration Factor {{ inputValue }}?</div>
+            <div class="btn-group">
+                <div class="button button-cancel" (click)="handleFinish()">
+                    <img src="/assets/images/icons/main/close.svg" alt="" />
+                    <span>Cancel</span>
+                </div>
+                <div class="button button-confirm" (click)="handleFinish()">
+                    <img src="/assets/images/icons/main/confirm.svg" alt="" />
+                    <span>Confirm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
